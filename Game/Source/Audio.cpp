@@ -55,8 +55,12 @@ bool Audio::Awake(pugi::xml_node& config)
 		ret = true;
 	}
 
+	volumeMusic = 100;
+	
+
 	return ret;
 }
+
 
 // Called before quitting
 bool Audio::CleanUp()
@@ -84,8 +88,26 @@ bool Audio::CleanUp()
 	return true;
 }
 
+void Audio::Volume(int num, char flag)
+{
+	vol = num;
+	if (flag == '0')
+	{
+		Mix_VolumeMusic(vol);
+		
+	}
+	else if (flag == '1')
+	{
+		for (int i = 0; i < fx.Count(); i++)
+		{
+			Mix_Volume(-1, vol);
+		}
+	}
+	
+}
+
 // Play a music file
-bool Audio::PlayMusic(const char* path, float fadeTime)
+bool Audio::PlayMusic(const char* path, float fade_time)
 {
 	bool ret = true;
 
@@ -94,9 +116,9 @@ bool Audio::PlayMusic(const char* path, float fadeTime)
 
 	if(music != NULL)
 	{
-		if(fadeTime > 0.0f)
+		if(fade_time > 0.0f)
 		{
-			Mix_FadeOutMusic(int(fadeTime * 1000.0f));
+			Mix_FadeOutMusic(int(fade_time * 1000.0f));
 		}
 		else
 		{
@@ -116,9 +138,9 @@ bool Audio::PlayMusic(const char* path, float fadeTime)
 	}
 	else
 	{
-		if(fadeTime > 0.0f)
+		if(fade_time > 0.0f)
 		{
-			if(Mix_FadeInMusic(music, -1, (int) (fadeTime * 1000.0f)) < 0)
+			if(Mix_FadeInMusic(music, -1, (int) (fade_time * 1000.0f)) < 0)
 			{
 				LOG("Cannot fade in music %s. Mix_GetError(): %s", path, Mix_GetError());
 				ret = false;

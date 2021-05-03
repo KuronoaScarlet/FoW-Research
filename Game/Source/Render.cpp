@@ -4,6 +4,7 @@
 
 #include "Defs.h"
 #include "Log.h"
+#include "Textures.h"
 
 #define VSYNC true
 
@@ -38,13 +39,13 @@ bool Render::Awake(pugi::xml_node& config)
 
 	if(renderer == NULL)
 	{
-		LOG("Could not create the renderer! SDL_Error: %s\n", SDL_GetError());
+		LOG("Could not Create the renderer! SDL_Error: %s\n", SDL_GetError());
 		ret = false;
 	}
 	else
 	{
-		camera.w = app->win->screenSurface->w;
-		camera.h = app->win->screenSurface->h;
+		camera.w = app->win->Introurface->w;
+		camera.h = app->win->Introurface->h;
 		camera.x = 0;
 		camera.y = 0;
 	}
@@ -56,8 +57,13 @@ bool Render::Awake(pugi::xml_node& config)
 bool Render::Start()
 {
 	LOG("render start");
+	SDL_Texture* texas = app->tex->Load("Assets/Fonts/kurale.png");
+	font = new Fonts("Assets/Fonts/kurale.xml", texas);
 	// back background
 	SDL_RenderGetViewport(renderer, &viewport);
+
+
+
 	return true;
 }
 
@@ -85,6 +91,29 @@ bool Render::CleanUp()
 {
 	LOG("Destroying SDL render");
 	SDL_DestroyRenderer(renderer);
+	return true;
+}
+
+// TODO 6: Create a method to load the state
+// Load Game State
+bool Render::LoadState(pugi::xml_node& data)
+{
+	pugi::xml_node cam = data.child("camera");
+	camera.x = cam.attribute("x").as_int(0);
+	camera.y = cam.attribute("y").as_int(0);
+
+	return true;
+}
+
+// TODO 8: Create a method to save the state of the renderer
+// Save Game State
+
+bool Render::SaveState(pugi::xml_node& data) const
+{
+	pugi::xml_node cam = data.append_child("camera");
+	cam.append_attribute("x").set_value(camera.x);
+	cam.append_attribute("y").set_value(camera.y);
+
 	return true;
 }
 
@@ -222,6 +251,30 @@ bool Render::DrawCircle(int x, int y, int radius, Uint8 r, Uint8 g, Uint8 b, Uin
 	{
 		LOG("Cannot draw quad to screen. SDL_RenderFillRect error: %s", SDL_GetError());
 		ret = false;
+	}
+
+	return ret;
+}
+
+bool Render::DrawText(Fonts* font, const char* text, int x, int y, int size, int spacing, SDL_Color tint)
+{
+	bool ret = true;
+
+	int length = strlen(text);
+	int posX = x;
+
+	float scale = (float)size / font->GetCharRec(32).h;
+
+	SDL_SetTextureColorMod(font->GetTextureAtlas(), tint.r, tint.g, tint.b);
+
+	for (int i = 0; i < length; i++)
+	{
+		SDL_Rect recGlyph = font->GetCharRec(text[i]);
+		SDL_Rect recDest = { posX, y, (scale * recGlyph.w), size };
+
+		SDL_RenderCopyEx(renderer, font->GetTextureAtlas(), &recGlyph, &recDest, 0.0, { 0 }, SDL_RendererFlip::SDL_FLIP_NONE);
+
+		posX += ((float)recGlyph.w * scale + spacing);
 	}
 
 	return ret;

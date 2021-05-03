@@ -5,6 +5,8 @@
 
 #include "PugiXml/src/pugixml.hpp"
 
+struct Collider;
+class GuiControl;
 class App;
 
 class Module
@@ -20,7 +22,7 @@ public:
 	}
 
 	// Called before render is available
-	// L01: DONE 5: Sending config file to all modules
+	// TODO 5: Sending config file to all modules
 	virtual bool Awake(pugi::xml_node&)
 	{
 		return true;
@@ -55,6 +57,26 @@ public:
 	{
 		return true;
 	}
+
+	virtual bool LoadState(pugi::xml_node&)
+	{
+		return true;
+	}
+
+	virtual bool SaveState(pugi::xml_node&) const
+	{
+		return true;
+	}
+
+	virtual void OnCollision(Collider* c1, Collider* c2)
+	{
+
+	}
+	virtual bool OnGuiMouseClickEvent(GuiControl* control)
+	{
+		return true;
+	}
+
 
 public:
 

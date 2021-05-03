@@ -3,6 +3,9 @@
 
 #include "Module.h"
 #include "List.h"
+#include "Timer.h"
+#include "Point.h"
+#include "PerfTimer.h"
 
 #include "PugiXml/src/pugixml.hpp"
 
@@ -12,7 +15,14 @@ class Input;
 class Render;
 class Textures;
 class Audio;
-class Scene;
+class EntityManager;
+class Map;
+class Collisions;
+
+//Scenes
+class Title;
+class Scene1;
+class FadeToBlack;
 
 class App
 {
@@ -45,6 +55,10 @@ public:
 	const char* GetTitle() const;
 	const char* GetOrganization() const;
 
+	// Load/Save Requests Methods
+	void LoadGameRequest();
+	void SaveGameRequest() const;
+
 private:
 
 	// Load config file
@@ -65,6 +79,10 @@ private:
 	// Call modules after each loop iteration
 	bool PostUpdate();
 
+	// Load / Save
+	bool LoadGame();
+	bool SaveGame() const;
+
 public:
 
 	// Modules
@@ -73,26 +91,75 @@ public:
 	Render* render;
 	Textures* tex;
 	Audio* audio;
-	Scene* scene;
+	Title* title;
+	Scene1* scene1;
+	Map* map;
+	EntityManager* entityManager;
+	FadeToBlack* fade;
+	Collisions* collisions;
+
+	uint activeFonts = 0;
+	uint totalFonts = 0;
+
+	bool debugButton = false;
+
+	bool stop = false;
+	int currentLevel;
+
+	bool loadingGame = false;
+
+	bool fileSaved;
+	
+	pugi::xml_document saveLoadFile;
+	pugi::xml_node saveLoadNode;
+
+	fPoint playerPosition;
 
 private:
 
 	int argc;
 	char** args;
-	SString title;
+	SString titl;
 	SString organization;
 
-	List<Module *> modules;
+	List<Module*> modules;
 
-	// TODO 2: Create new variables from pugui namespace:
-	// a xml_document to store the config file and
-	// two xml_node to read specific branches of the xml
 	pugi::xml_document configFile;
 	pugi::xml_node config;
 	pugi::xml_node configApp;
 
 	uint frames;
 	float dt;
+
+	mutable bool saveGameRequested;
+	bool loadGameRequested;
+
+
+	PerfTimer perfTimer;
+	uint64 fpsCount = 0;
+
+	int frameRate60;
+	int frameRate30;
+
+	Timer startTime;
+	Timer frameTime;
+	Timer lastSecond;
+	uint32 lastSecFrameCnt = 0;
+	uint32 prevLastSecFrameCnt = 0;
+	uint32 framesSecond = 0;
+	uint32 lastFrameMs = 0;
+	float fps;
+	float frameRate;
+	float tempFps;
+	float fpsAverageSinceStart;
+	bool cappedFrameRate;
+	float startFramesTimeMs;
+	
+	
+	float timePerfect;
+	float oldLastFrame = 0.0f;
+	int cappedMs = -1;
+	bool caped;
 };
 
 extern App* app;

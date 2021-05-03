@@ -1,0 +1,267 @@
+#include "App.h"
+#include "Input.h"
+#include "Textures.h"
+#include "Audio.h"
+#include "Render.h"
+#include "Window.h"
+#include "Collisions.h"
+#include "Map.h"
+#include "Animation.h"
+#include "Title.h"
+#include "FadeToBlack.h"
+#include "Scene1.h"
+#include "EntityManager.h"
+#include "Fonts.h"
+
+
+#include "Defs.h"
+#include "Log.h"
+
+Title::Title() : Module()
+{
+    name.Create("Logo");
+}
+
+Title::~Title()
+{
+
+}
+
+bool Title::Awake()
+{
+    LOG("Loading Logo");
+    bool ret = true;
+
+    return ret;
+}
+
+// Load assets
+bool Title::Start()
+{
+    LOG("Loading Logo assets");
+
+    bool ret = true;
+
+    pugi::xml_parse_result result = app->saveLoadFile.load_file("save_game.xml");
+    if (result != NULL)
+    {
+        app->saveLoadNode = app->saveLoadFile.child("save");
+        app->fileSaved = true;
+    }
+    if (result == NULL)
+    {
+        app->fileSaved = false;
+    }
+
+    screen = app->tex->Load("Assets/Textures/Screens/title_screen.png");
+    app->audio->PlayMusic("Assets/Audio/Music/menu_music.ogg");
+
+    settingsPost2 = app->tex->Load("Assets/Textures/postit.png");
+
+    play = new GuiButton(1, { 517, 304, 240, 60 }, "CONTINUE");
+    play->SetObserver(this);
+    play->SetTexture(app->tex->Load("Assets/Textures/continue.png"), app->tex->Load("Assets/Textures/continue_selected.png"), app->tex->Load("Assets/Textures/continue_pressed.png"));
+    play->SetDisableTexture(app->tex->Load("Assets/Textures/continue_disabled.png"));
+    if (!app->fileSaved)
+    {
+       play->state = GuiControlState::DISABLED;
+    }
+    
+    newGame = new GuiButton(12, { 517, 370, 234, 55 }, "START");
+    newGame->SetObserver(this);
+    newGame->SetDisableTexture(app->tex->Load("Assets/Textures/Buttons/states/no.png"));
+    newGame->SetTexture(app->tex->Load("Assets/Textures/newgame.png"), app->tex->Load("Assets/Textures/newgame_selected.png"), app->tex->Load("Assets/Textures/newgame_pressed.png"));
+
+    escCredits = new GuiButton(18, { 40, 20, 200, 100 }, "ESC");
+    escCredits->SetObserver(this);
+    escCredits->SetDisableTexture(app->tex->Load("Assets/Textures/esc.png"));
+    escCredits->SetTexture(app->tex->Load("Assets/Textures/esc.png"), app->tex->Load("Assets/Textures/esc2.png"), app->tex->Load("Assets/Textures/esc3.png"));
+
+    options = new GuiButton(2, { 543, 438, 197, 55 }, "OPTIONS");
+    options->SetObserver(this);
+    options->SetTexture(app->tex->Load("Assets/Textures/settings.png"), app->tex->Load("Assets/Textures/settings_selected.png"), app->tex->Load("Assets/Textures/settings_pressed.png"));
+
+    credits = new GuiButton(13, { 551, 514, 172, 55 }, "CREDITS");
+    credits->SetObserver(this);
+    credits->SetTexture(app->tex->Load("Assets/Textures/credits.png"), app->tex->Load("Assets/Textures/credits_selected.png"), app->tex->Load("Assets/Textures/credits_pressed.png"));
+
+    fullScreen = new GuiCheckBox(7, { 900,200, 300, 60 }, "FULLSCREEN");
+    fullScreen->SetObserver(this);
+    fullScreen->SetTexture(app->tex->Load("Assets/Textures/fs1.png"), app->tex->Load("Assets/Textures/fs2.png"), app->tex->Load("Assets/Textures/fs2.png"));
+
+    exit = new GuiButton(4, { 580, 569, 117, 55 }, "EXIT");
+    exit->SetObserver(this);
+    exit->SetTexture(app->tex->Load("Assets/Textures/exit.png"), app->tex->Load("Assets/Textures/exit_selected.png"), app->tex->Load("Assets/Textures/exit_pressed.png"));
+
+    backButton = new GuiButton(3, { 220, 375, 100, 55 }, "BACK");
+    backButton->SetObserver(this);
+    backButton->SetTexture(app->tex->Load("Assets/Textures/Buttons/states/play.png"), app->tex->Load("Assets/Textures/Buttons/states/focused.png"), app->tex->Load("Assets/Textures/Buttons/states/pressed.png"));
+
+    creditSceneFlag = false;
+    fullSc = false;
+    vsync = true;
+    exi = false;
+
+    app->render->camera.x = 0;
+
+   return ret;
+}
+
+bool Title::PreUpdate()
+{
+    return true;
+}
+
+bool Title::Update(float dt)
+{
+    if (creditSceneFlag == false)
+    {
+        play->Update(app->input, dt);
+        newGame->Update(app->input, dt);
+        options->Update(app->input, dt);
+        credits->Update(app->input, dt);
+        exit->Update(app->input, dt);
+    }
+    if (app->title->configOn)
+    {
+        fullScreen->Update(app->input, dt);
+    }
+    if (creditsOnScreen)
+    {
+        escCredits->Update(app->input, dt);
+    }
+    if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
+    {
+        creditSceneFlag = false;
+        creditsOnScreen = false;
+    }
+    return true;
+}
+
+// Update: draw background
+bool Title::PostUpdate()
+{
+    bool ret = true;
+
+   // Draw everything --------------------------------------
+    if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+    {
+        app->fade->Fade(this, (Module*)app->scene1, 10);
+
+    }
+    if (!creditSceneFlag)
+    {
+        
+        app->render->camera.y = 0;
+        app->render->DrawTexture(screen, 0, 0, NULL);
+
+
+        // start->Draw(app->render);
+        // SDL_Rect rectPlayer = playerData.currentAnim->GetCurrentFrame();
+        play->Draw(app->render);
+       
+        if (!app->fileSaved)
+        {
+           
+            newGame->Draw(app->render);
+        }
+        else
+        {
+            newGame->Draw(app->render);
+            
+        }
+       
+        options->Draw(app->render);
+       
+        credits->Draw(app->render);
+
+        exit->Draw(app->render);
+        if (app->title->configOn)
+        {
+            app->render->DrawTexture(app->title->settingsPost2, 875, 100, NULL);
+            fullScreen->Draw(app->render);
+        }
+    }
+   
+    
+    
+
+    if (exi == true) 
+    {
+        return false;
+    }
+    
+    
+
+    return ret;
+}
+
+bool Title::CleanUp()
+{
+    if (!active)return true;
+    LOG("Freeing Logo");
+    app->title->active = false;
+    app->tex->UnLoad(screen);
+    return true;
+}
+
+bool Title::OnGuiMouseClickEvent(GuiControl* control)
+{
+    switch (control->type)
+    {
+    case GuiControlType::BUTTON:
+    {
+        if (control->id == 1)
+        {
+            //LoadGame
+            app->loadingGame = true;
+            pugi::xml_document savedGame;
+            savedGame.load_file("save_game.xml");
+
+            pugi::xml_node generalNode = savedGame.child("save");
+            pugi::xml_node map = generalNode.child("map");
+            app->map->LoadState(map);
+
+            if (app->currentLevel == 1) app->fade->Fade((Module*)app->title, (Module*)app->scene1, 10);
+        }
+        else if (control->id == 2)
+        {
+            //Settings
+
+            app->title->configOn = !app->title->configOn;
+        }
+        else if (control->id == 4)
+        {
+            //Exit
+            app->title->exi = true;
+        }
+        else if (control->id == 9)
+        {
+
+        }
+    }
+    case GuiControlType::SLIDER:
+    {
+
+    }
+    case GuiControlType::CHECKBOX:
+    {
+        if (control->id == 7)
+        {
+            //FullScreen
+            if (app->title->fullSc == false)
+            {
+                SDL_SetWindowFullscreen(app->win->window, SDL_WINDOW_FULLSCREEN);
+                app->title->fullSc = true;
+            }
+            else
+            {
+                SDL_SetWindowFullscreen(app->win->window, SDL_WINDOW_RESIZABLE);
+            }
+        }
+    }
+    default: break;
+    }
+
+    return true;
+}

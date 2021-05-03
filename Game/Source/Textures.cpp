@@ -104,7 +104,7 @@ SDL_Texture* const Textures::LoadSurface(SDL_Surface* surface)
 
 	if(texture == NULL)
 	{
-		LOG("Unable to create texture from surface! SDL Error: %s\n", SDL_GetError());
+		LOG("Unable to Create texture from surface! SDL Error: %s\n", SDL_GetError());
 	}
 	else
 	{
