@@ -6,10 +6,6 @@
 #include "Point.h"
 #include "Entity.h"
 
-#include "GuiButton.h"
-#include "GuiCheckBox.h"
-#include "Title.h"
-
 class EntityManager : public Module
 {
 public:
@@ -44,12 +40,6 @@ public:
 
 	void OnCollision(Collider* a, Collider* b);
 
-	bool OnGuiMouseClickEvent(GuiControl* control)
-	{
-		app->title->OnGuiMouseClickEvent(control);
-		return true;
-	}
-
 
 	struct PlayerData 
 	{
@@ -59,9 +49,9 @@ public:
 	PlayerData playerData;
 
 	List<Entity*> entityList;
+
 private:
 	SDL_Texture* texPlayer;
-
 
 	Entity* entityPlayer;
 };

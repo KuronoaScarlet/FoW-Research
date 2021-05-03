@@ -10,7 +10,6 @@
 #include "Collisions.h"
 #include "FadeToBlack.h"
 #include "Fonts.h"
-#include "Title.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -36,7 +35,7 @@ bool Scene1::Awake()
 // Called before the first frame
 bool Scene1::Start()
 {
-	app->entityManager->AddEntity({ app->playerPosition.x, app->playerPosition.y }, Entity::Type::PLAYER);
+	app->scene1->active = true;
 
 	app->render->camera.y = 0;
 	app->render->camera.x = 0;
@@ -52,6 +51,8 @@ bool Scene1::Start()
 	}
 
 	app->map->Load("mapLvl21.tmx");
+	
+	app->entityManager->AddEntity({ app->playerPosition.x, app->playerPosition.y }, Entity::Type::PLAYER);
 
 	return true;
 }

@@ -5,7 +5,6 @@
 #include "Collider.h"
 #include "FadeToBlack.h"
 #include "Scene1.h"
-#include "Title.h"
 #include "Map.h"
 #include "Audio.h"
 #include "EntityManager.h"
@@ -155,7 +154,10 @@ bool PlayerEntity::Draw()
 
 void PlayerEntity::Collision(Collider* coll)
 {
-
+	if (coll->type == Collider::Type::WALL)
+	{
+		position = tempPlayerPosition;
+	}
 }
 
 void PlayerEntity::CleanUp()

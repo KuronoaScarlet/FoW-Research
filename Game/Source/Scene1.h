@@ -4,13 +4,8 @@
 #include "Module.h"
 #include "Animation.h"
 #include "Timer.h"
-#include "Title.h"
 #include "GuiButton.h"
 #include "GuiCheckBox.h"
-
-class GuiCheckBox;
-class GuiButton;
-class GuiControl;
 
 class Scene1 : public Module
 {
@@ -38,12 +33,6 @@ public:
 
 	// Called before quitting
 	bool CleanUp();
-
-	bool OnGuiMouseClickEvent(GuiControl* control)
-	{
-		app->title->OnGuiMouseClickEvent(control);
-		return true;
-	}
 
 	bool firstEntry = true;
 };

@@ -4,7 +4,6 @@
 #include "Render.h"
 #include "Textures.h"
 #include "Audio.h"
-#include "Title.h"
 #include "Scene1.h"
 #include "Map.h"
 #include "EntityManager.h"
@@ -23,7 +22,6 @@
 // Constructor
 App::App(int argc, char* args[]) : argc(argc), args(args)
 {
-	
 	frames = 0;
 
 	input = new Input();
@@ -31,7 +29,6 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	render = new Render();
 	tex = new Textures();
 	audio = new Audio();
-	title = new Title();
 	scene1 = new Scene1();
 	map = new Map();
 	entityManager = new EntityManager();
@@ -44,20 +41,18 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(win);
 	AddModule(tex);
 	AddModule(audio);
-	AddModule(title);
-	AddModule(scene1);
 	AddModule(map);
 	AddModule(entityManager);
+	AddModule(scene1);
 	AddModule(fade);
 	// Render last to swap buffer
 
 	AddModule(collisions);
 	AddModule(render);
 
-	title->active = true;
-	scene1->active = false;
+	scene1->active = true;
 
-	playerPosition = { 600.0f, 800.0f };
+	playerPosition = { 200.0f, 200.0f };
 }
 
 App::~App()

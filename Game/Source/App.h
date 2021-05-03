@@ -20,7 +20,6 @@ class Map;
 class Collisions;
 
 //Scenes
-class Title;
 class Scene1;
 class FadeToBlack;
 
@@ -91,7 +90,6 @@ public:
 	Render* render;
 	Textures* tex;
 	Audio* audio;
-	Title* title;
 	Scene1* scene1;
 	Map* map;
 	EntityManager* entityManager;
