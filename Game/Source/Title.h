@@ -42,28 +42,22 @@ public:
 
     bool OnGuiMouseClickEvent(GuiControl* control);
 
-
-
 public:
-    bool configOn = false;
-    // The scene sprite sheet loaded into an SDL_Texture
     SDL_Texture* screen = nullptr;
 
-    bool creditSceneFlag;
-    SDL_Texture* settingsPost2;
     GuiButton* play;
-    GuiButton* newGame;
-    GuiButton* escCredits;
-    GuiButton* options;
-    GuiButton* credits;
+    GuiButton* load;
     GuiButton* exit;
-    GuiButton* backButton;
-    GuiCheckBox* fullScreen;
+    GuiButton* credits;
+    GuiButton* back;
+
+    bool creditSceneFlag;
     
     bool creditsOnScreen = false;
     bool fullSc;
     bool vsync;
-    bool exi;
+    bool exitGame;
+
 };
 
 #endif
