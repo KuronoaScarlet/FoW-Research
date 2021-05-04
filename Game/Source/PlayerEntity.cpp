@@ -42,7 +42,7 @@ PlayerEntity::PlayerEntity(Module* listener, fPoint position, SDL_Texture* textu
 
 	currentAnimation = &idleAnimation;
 
-	collider = app->collisions->AddCollider(SDL_Rect({ (int)position.x, (int)position.y, 10, 15 }), Collider::Type::PLAYER, listener);
+	collider = app->collisions->AddCollider(SDL_Rect({ (int)position.x, (int)position.y, 20, 30 }), Collider::Type::PLAYER, listener);
 }
 
 bool PlayerEntity::Start()
@@ -58,13 +58,13 @@ bool PlayerEntity::Update(float dt)
 	app->entityManager->playerData.position.x = position.x;
 	app->entityManager->playerData.position.y = position.y;
 
-	app->render->camera.x = -position.x + (SCREEN_WIDTH/2);
-	app->render->camera.y = -position.y + (SCREEN_HEIGHT/2);
+	//app->render->camera.x = -position.x + (SCREEN_WIDTH/2);
+	//app->render->camera.y = -position.y + (SCREEN_HEIGHT/2);
 
 	//printf_s("%.0f, %.0f   -   %d, %d\n", position.x, position.y, app->render->camera.x, app->render->camera.y);
 
 	//Player Movement
-	float speed = (godMode) ? 100 : 50;
+	float speed = (godMode) ? 200 : 60;
 
 	if (app->input->GetKey(SDL_SCANCODE_A) == KEY_IDLE
 		&& app->input->GetKey(SDL_SCANCODE_D) == KEY_IDLE
@@ -124,7 +124,7 @@ bool PlayerEntity::Update(float dt)
 	if (app->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN) app->LoadGameRequest();
 
 	currentAnimation->Update();
-	collider->SetPos(position.x+2,position.y+3);
+	collider->SetPos(position.x+4,position.y+6);
 	
 	return true;
 }
@@ -140,7 +140,7 @@ bool PlayerEntity::Draw()
 
 void PlayerEntity::Collision(Collider* coll)
 {
-	if (coll->type == Collider::Type::WALL)
+	if (coll->type == Collider::Type::WALL && godMode == false)
 	{
 		position = tempPlayerPosition;
 	}

@@ -53,6 +53,8 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	scene1->active = true;
 
 	playerPosition = { 384.0f, 1152.0f };
+
+	SDL_SetRenderDrawBlendMode(render->renderer, SDL_BLENDMODE_BLEND);
 }
 
 App::~App()
@@ -178,7 +180,6 @@ void App::PrepareUpdate()
 	fpsCount++;
 	lastSecFrameCnt++;
 
-	// L08: DONE 4: Calculate the dt: differential time since last frame
 	dt = frameTime.ReadSec();
 	frameTime.Start();
 	

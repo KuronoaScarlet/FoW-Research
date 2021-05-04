@@ -14,7 +14,6 @@
 
 #define COST_MAP_SIZE	100
 
-// L03: DONE 2: Create a struct to hold information for a TileSet
 // Ignore Terrain Types and Tile Types for now, but we want the image!
 struct TileSet
 {
@@ -33,19 +32,15 @@ struct TileSet
 	int	offsetX;
 	int	offsetY;
 
-	// L04: DONE 7: Create a method that receives a tile id and returns it's Rectfind the Rect associated with a specific tile id
 	SDL_Rect GetTileRect(int id) const;
 };
 
-// L03: DONE 1: We create an enum for map type, just for convenience,
-// NOTE: Platformer game will be of type ORTHOGONAL
 enum MapTypes
 {
 	MAPTYPE_UNKNOWN = 0,
-	MAPTYPE_ORTHOGONAL,
-	MAPTYPE_ISOMETRIC,
-	MAPTYPE_STAGGERED
+	MAPTYPE_ORTHOGONAL
 };
+
 struct Properties
 {
 	struct Property
@@ -56,10 +51,8 @@ struct Properties
 
 	~Properties()
 	{
-		//...
+		
 	}
-
-	// L06: TODO 7: Method to ask for the value of a custom property
 
 	int GetProperty(const char* name, int default_value = 0) const;
 
@@ -67,7 +60,6 @@ struct Properties
 	Property property;
 };
 
-// L04: DONE 1: Create a struct for the map layer
 struct MapLayer
 {
 	SString	name;
@@ -85,7 +77,6 @@ struct MapLayer
 		RELEASE(data);
 	}
 
-	// L04: DONE 6: Short function to get the value of x,y
 	inline uint Get(int x, int y) const
 	{
 
@@ -93,7 +84,6 @@ struct MapLayer
 	}
 };
 
-// L03: DONE 1: Create a struct needed to hold the information to Map node
 struct MapData
 {
 	int width;
@@ -104,7 +94,6 @@ struct MapData
 	MapTypes type;
 	List<TileSet*> tilesets;
 
-	// L04: DONE 2: Add a list/array of layers to the map
 	List<MapLayer*> layers;
 };
 
@@ -155,7 +144,6 @@ public:
 
 private:
 
-	// L03: Methods to load all required map data
 	bool LoadMap();
 	bool LoadTilesetDetails(pugi::xml_node& tileset_node, TileSet* set);
 	bool LoadTilesetImage(pugi::xml_node& tileset_node, TileSet* set);

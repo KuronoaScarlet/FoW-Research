@@ -94,7 +94,6 @@ bool Render::CleanUp()
 	return true;
 }
 
-// TODO 6: Create a method to load the state
 // Load Game State
 bool Render::LoadState(pugi::xml_node& data)
 {
@@ -105,7 +104,6 @@ bool Render::LoadState(pugi::xml_node& data)
 	return true;
 }
 
-// TODO 8: Create a method to save the state of the renderer
 // Save Game State
 
 bool Render::SaveState(pugi::xml_node& data) const

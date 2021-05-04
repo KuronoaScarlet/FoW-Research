@@ -41,6 +41,4 @@ private:
 
 };
 
-#endif // _GROUNDENEMY_H_
-
-// 192 416
+#endif // _PLAYERENTITY_H_

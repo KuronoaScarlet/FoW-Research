@@ -35,6 +35,9 @@ public:
 	bool CleanUp();
 
 	bool firstEntry = true;
+
+public:
+	SDL_Surface* mFogOfWar;
 };
 
 

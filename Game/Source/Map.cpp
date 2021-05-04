@@ -37,7 +37,6 @@ void Map::Draw()
 	camOffset.x = app->render->camera.x;
 	camOffset.y = app->render->camera.y;
 
-	// L06: DONE 4: Make sure we draw all the layers and not just the first one
 	for (int i = 0; i < data.layers.Count(); i++)
 	{
 		if ((data.layers[i]->properties.GetProperty("drawable", 1) != 0) || drawColliders) DrawLayer(i);
@@ -53,7 +52,6 @@ void Map::DrawLayer(int num)
 
 		app->render->scale = scale;
 
-		// L04: DONE 5: Prepare the loop to draw all tilesets + DrawTexture()
 		for (int y = 0; y < data.height; ++y)
 		{
 			for (int x = 0; x < data.width; ++x)
@@ -62,7 +60,7 @@ void Map::DrawLayer(int num)
 
 				if (tileId > 0)
 				{
-					// L04: DONE 9: Complete the draw function
+
 					TileSet* tileset = GetTilesetFromTileId(tileId);
 
 					SDL_Rect rec = tileset->GetTileRect(tileId);
@@ -77,7 +75,6 @@ void Map::DrawLayer(int num)
 	}
 }
 
-// L04: DONE 8: Create a method that translates x,y coordinates from map positions to world positions
 iPoint Map::MapToWorld(int x, int y) const
 {
 	iPoint ret;
@@ -85,18 +82,15 @@ iPoint Map::MapToWorld(int x, int y) const
 	ret.x = x * data.tileWidth;
 	ret.y = y * data.tileHeight;
 
-	// L05: TODO 1: Add isometric map to world coordinates
 
 	return ret;
 }
 
-// L05: TODO 2: Add orthographic world to map coordinates
 iPoint Map::WorldToMap(int x, int y) const
 {
 	iPoint ret(0, 0);
 	ret.x = x / data.tileWidth;
 	ret.y = y / data.tileHeight;
-	// L05: TODO 3: Add the case for isometric maps to WorldToMap
 
 	return ret;
 }
@@ -194,7 +188,7 @@ int Map::MovementCost(int x, int y) const
 
 	if ((x >= 0) && (x < data.width) && (y >= 0) && (y < data.height))
 	{
-		// Coje el layer de las colisiones que en nuestro caso es el tercero
+		// Coge el layer de las colisiones que en nuestro caso es el tercero
 		int id = data.layers.start->next->next->data->Get(x, y);
 
 		if (id != 0)
@@ -452,7 +446,6 @@ bool Map::LoadTilesetImage(pugi::xml_node& tileset_node, TileSet* set)
 	}
 	else
 	{
-		// L03: DONE: Load Tileset image
 		set->texture = app->tex->Load(PATH(folder.GetString(), image.attribute("source").as_string()));
 		int w, h;
 		SDL_QueryTexture(set->texture, NULL, NULL, &w, &h);

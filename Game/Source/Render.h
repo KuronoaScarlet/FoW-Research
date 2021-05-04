@@ -2,6 +2,7 @@
 #define __RENDER_H__
 
 #include "Module.h"
+#include "Window.h"
 
 #include "Point.h"
 
@@ -45,6 +46,7 @@ public:
 	bool DrawLine(int x1, int y1, int x2, int y2, Uint8 r, Uint8 g, Uint8 b, Uint8 a = 255, bool useCamera = true) const;
 	bool DrawCircle(int x1, int y1, int redius, Uint8 r, Uint8 g, Uint8 b, Uint8 a = 255, bool useCamera = true) const;
 	bool DrawText(Fonts* font, const char* text, int x, int y, int size, int spacing, SDL_Color tint);
+	
 
 	// Set background color
 	void SetBackgroundColor(SDL_Color color);
