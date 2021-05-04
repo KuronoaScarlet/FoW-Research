@@ -15,53 +15,34 @@
 PlayerEntity::PlayerEntity(Module* listener, fPoint position, SDL_Texture* texture, Type type) : Entity(listener, position, texture, type)
 {
 	idleAnimation.loop = true;
-	idleAnimation.PushBack({ 576, 80, 32, 48 });
-	idleAnimation.PushBack({ 608, 80, 32, 48 });
-	idleAnimation.PushBack({ 640, 80, 32, 48 });
-	idleAnimation.PushBack({ 672, 80, 32, 48 });
-	idleAnimation.PushBack({ 704, 80, 32, 48 });
-	idleAnimation.PushBack({ 736, 80, 32, 48 });
-	idleAnimation.speed = 0.2f;
+	idleAnimation.PushBack({ 44, 0, 13, 19 });
+	idleAnimation.speed = 0.01f;
 
 	walkAnimationRight.loop = true;
-	walkAnimationRight.speed = 0.2f;
-	walkAnimationRight.PushBack({ 0,146, 30, 46 });
-	walkAnimationRight.PushBack({ 32,144, 30, 46 });
-	walkAnimationRight.PushBack({ 64,146, 30, 46 });
-	walkAnimationRight.PushBack({ 96,146, 30, 46 });
-	walkAnimationRight.PushBack({ 128,144, 30, 46 });
-	walkAnimationRight.PushBack({ 160,146, 30, 46 });
+	walkAnimationRight.speed = 0.15f;
+	walkAnimationRight.PushBack({ 0, 0, 14, 19 });
+	walkAnimationRight.PushBack({ 15, 0, 14, 19 });
+	walkAnimationRight.PushBack({ 30, 0, 13, 19 });
+	walkAnimationRight.PushBack({ 44, 0, 13, 19 });
+	walkAnimationRight.PushBack({ 58, 0, 13, 19 });
+	walkAnimationRight.PushBack({ 72, 0, 13, 19 });
+	walkAnimationRight.PushBack({ 86, 0, 14, 19 });
+	walkAnimationRight.PushBack({ 100, 0, 14, 19 });
 
 	walkAnimationLeft.loop = true;
-	walkAnimationLeft.speed = 0.2f;
-	walkAnimationLeft.PushBack({ 386,146, 32, 46 });
-	walkAnimationLeft.PushBack({ 418,144, 32, 46 });
-	walkAnimationLeft.PushBack({ 450,146, 32, 46 });
-	walkAnimationLeft.PushBack({ 482,146, 32, 46 });
-	walkAnimationLeft.PushBack({ 514,144, 32, 46 });
-	walkAnimationLeft.PushBack({ 546,146, 32, 46 });
-
-	walkAnimationUp.loop = true;
-	walkAnimationUp.speed = 0.2f;
-	walkAnimationUp.PushBack({ 192,144, 32, 48 });
-	walkAnimationUp.PushBack({ 224,144, 32, 48 });
-	walkAnimationUp.PushBack({ 256,144, 32, 48 });
-	walkAnimationUp.PushBack({ 288,144, 32, 48 });
-	walkAnimationUp.PushBack({ 320,144, 32, 48 });
-	walkAnimationUp.PushBack({ 352,144, 32, 48 });
-
-	walkAnimationDown.loop = true;
-	walkAnimationDown.speed = 0.2f;
-	walkAnimationDown.PushBack({ 576,144, 32, 48 });
-	walkAnimationDown.PushBack({ 608,144, 32, 48 });
-	walkAnimationDown.PushBack({ 640,144, 32, 48 });
-	walkAnimationDown.PushBack({ 672,144, 32, 48 });
-	walkAnimationDown.PushBack({ 704,144, 32, 48 });
-	walkAnimationDown.PushBack({ 736,144, 32, 48 });
+	walkAnimationLeft.speed = 0.15f;
+	walkAnimationLeft.PushBack({ 0, 20, 14, 19 });
+	walkAnimationLeft.PushBack({ 15, 20, 14, 19 });
+	walkAnimationLeft.PushBack({ 30, 20, 13, 19 });
+	walkAnimationLeft.PushBack({ 44, 20, 13, 19 });
+	walkAnimationLeft.PushBack({ 58, 20, 13, 19 });
+	walkAnimationLeft.PushBack({ 72, 20, 13, 19 });
+	walkAnimationLeft.PushBack({ 86, 20, 14, 19 });
+	walkAnimationLeft.PushBack({ 100, 20, 14, 19 });
 
 	currentAnimation = &idleAnimation;
 
-	collider = app->collisions->AddCollider(SDL_Rect({ (int)position.x + 6, (int)position.y + 34, 22, 12 }), Collider::Type::PLAYER, listener);
+	collider = app->collisions->AddCollider(SDL_Rect({ (int)position.x, (int)position.y, 10, 15 }), Collider::Type::PLAYER, listener);
 }
 
 bool PlayerEntity::Start()
@@ -77,8 +58,13 @@ bool PlayerEntity::Update(float dt)
 	app->entityManager->playerData.position.x = position.x;
 	app->entityManager->playerData.position.y = position.y;
 
+	//app->render->camera.x = -position.x + (640/2);
+	//app->render->camera.y = -position.y + 60;
+
+	//printf_s("%.0f, %.0f   -   %d, %d\n", position.x, position.y, app->render->camera.x, app->render->camera.y);
+
 	//Player Movement
-	float speed = (godMode) ? 300 : 150;
+	float speed = (godMode) ? 100 : 50;
 
 	if (app->input->GetKey(SDL_SCANCODE_A) == KEY_IDLE
 		&& app->input->GetKey(SDL_SCANCODE_D) == KEY_IDLE
@@ -113,19 +99,19 @@ bool PlayerEntity::Update(float dt)
 	if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT)
 	{
 		position.y -= speed * dt;
-		if (currentAnimation != &walkAnimationUp)
+		if (currentAnimation != &walkAnimationRight)
 		{
-			walkAnimationUp.Reset();
-			currentAnimation = &walkAnimationUp;
+			walkAnimationRight.Reset();
+			currentAnimation = &walkAnimationRight;
 		}
 	}
 	if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT)
 	{
 		position.y += speed * dt;
-		if (currentAnimation != &walkAnimationDown)
+		if (currentAnimation != &walkAnimationLeft)
 		{
-			walkAnimationDown.Reset();
-			currentAnimation = &walkAnimationDown;
+			walkAnimationRight.Reset();
+			currentAnimation = &walkAnimationLeft;
 		}
 	}
 
@@ -138,7 +124,7 @@ bool PlayerEntity::Update(float dt)
 	if (app->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN) app->LoadGameRequest();
 
 	currentAnimation->Update();
-	collider->SetPos(position.x + 6,position.y + 34);
+	collider->SetPos(position.x+2,position.y+3);
 	
 	return true;
 }

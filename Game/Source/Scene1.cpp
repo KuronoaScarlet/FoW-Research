@@ -50,7 +50,7 @@ bool Scene1::Start()
 		app->loadingGame = false;
 	}
 
-	app->map->Load("mapLvl21.tmx");
+	app->map->Load("level.tmx");
 	
 	app->entityManager->AddEntity({ app->playerPosition.x, app->playerPosition.y }, Entity::Type::PLAYER);
 

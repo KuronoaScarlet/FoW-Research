@@ -52,7 +52,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 
 	scene1->active = true;
 
-	playerPosition = { 200.0f, 200.0f };
+	playerPosition = { 185.0f, 575.0f };
 }
 
 App::~App()
