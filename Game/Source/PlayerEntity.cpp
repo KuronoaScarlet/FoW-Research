@@ -15,30 +15,30 @@
 PlayerEntity::PlayerEntity(Module* listener, fPoint position, SDL_Texture* texture, Type type) : Entity(listener, position, texture, type)
 {
 	idleAnimation.loop = true;
-	idleAnimation.PushBack({ 44, 0, 13, 19 });
+	idleAnimation.PushBack({ 88, 0, 26, 38 });
 	idleAnimation.speed = 0.01f;
 
 	walkAnimationRight.loop = true;
 	walkAnimationRight.speed = 0.15f;
-	walkAnimationRight.PushBack({ 0, 0, 14, 19 });
-	walkAnimationRight.PushBack({ 15, 0, 14, 19 });
-	walkAnimationRight.PushBack({ 30, 0, 13, 19 });
-	walkAnimationRight.PushBack({ 44, 0, 13, 19 });
-	walkAnimationRight.PushBack({ 58, 0, 13, 19 });
-	walkAnimationRight.PushBack({ 72, 0, 13, 19 });
-	walkAnimationRight.PushBack({ 86, 0, 14, 19 });
-	walkAnimationRight.PushBack({ 100, 0, 14, 19 });
+	walkAnimationRight.PushBack({ 0, 0, 28, 38 });
+	walkAnimationRight.PushBack({ 30, 0, 28, 38 });
+	walkAnimationRight.PushBack({ 60, 0, 26, 38 });
+	walkAnimationRight.PushBack({ 88, 0, 26, 38 });
+	walkAnimationRight.PushBack({ 116, 0, 26, 38 });
+	walkAnimationRight.PushBack({ 144, 0, 26, 38 });
+	walkAnimationRight.PushBack({ 172, 0, 28, 38 });
+	walkAnimationRight.PushBack({ 200, 0, 28, 38 });
 
 	walkAnimationLeft.loop = true;
 	walkAnimationLeft.speed = 0.15f;
-	walkAnimationLeft.PushBack({ 0, 20, 14, 19 });
-	walkAnimationLeft.PushBack({ 15, 20, 14, 19 });
-	walkAnimationLeft.PushBack({ 30, 20, 13, 19 });
-	walkAnimationLeft.PushBack({ 44, 20, 13, 19 });
-	walkAnimationLeft.PushBack({ 58, 20, 13, 19 });
-	walkAnimationLeft.PushBack({ 72, 20, 13, 19 });
-	walkAnimationLeft.PushBack({ 86, 20, 14, 19 });
-	walkAnimationLeft.PushBack({ 100, 20, 14, 19 });
+	walkAnimationLeft.PushBack({ 0, 40, 28, 38 });
+	walkAnimationLeft.PushBack({ 30, 40, 28, 38 });
+	walkAnimationLeft.PushBack({ 60, 40, 26, 38 });
+	walkAnimationLeft.PushBack({ 88, 40, 26, 38 });
+	walkAnimationLeft.PushBack({ 116, 40, 26, 38 });
+	walkAnimationLeft.PushBack({ 144, 40, 26, 38 });
+	walkAnimationLeft.PushBack({ 172, 40, 28, 38 });
+	walkAnimationLeft.PushBack({ 200, 40, 28, 38 });
 
 	currentAnimation = &idleAnimation;
 
@@ -58,8 +58,8 @@ bool PlayerEntity::Update(float dt)
 	app->entityManager->playerData.position.x = position.x;
 	app->entityManager->playerData.position.y = position.y;
 
-	//app->render->camera.x = -position.x + (640/2);
-	//app->render->camera.y = -position.y + 60;
+	app->render->camera.x = -position.x + (SCREEN_WIDTH/2);
+	app->render->camera.y = -position.y + (SCREEN_HEIGHT/2);
 
 	//printf_s("%.0f, %.0f   -   %d, %d\n", position.x, position.y, app->render->camera.x, app->render->camera.y);
 
