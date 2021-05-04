@@ -52,6 +52,8 @@ bool Scene1::Start()
 	
 	app->entityManager->AddEntity({ app->playerPosition.x, app->playerPosition.y }, Entity::Type::PLAYER);
 
+	app->map->data.height;
+
 	return true;
 }
 
@@ -74,16 +76,6 @@ bool Scene1::Update(float dt)
 bool Scene1::PostUpdate()
 {
 	bool ret = true;
-
-	SDL_Rect fogRect = { 0 , 0, SCREEN_WIDTH, 2000 };
-
-	app->render->DrawRectangle(fogRect, 0, 0, 0, 255);
-
-	if (SDL_HasIntersection(&fogRect, &app->entityManager->entityList.start->data->collider->rect))
-	{
-		app->render->DrawRectangle({ (int)app->entityManager->playerData.position.x, (int)app->entityManager->playerData.position.y, 30, 30 }, 255, 255, 255, 255);
-	}
-
 
 	return ret;
 }

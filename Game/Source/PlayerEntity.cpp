@@ -58,13 +58,13 @@ bool PlayerEntity::Update(float dt)
 	app->entityManager->playerData.position.x = position.x;
 	app->entityManager->playerData.position.y = position.y;
 
-	//app->render->camera.x = -position.x + (SCREEN_WIDTH/2);
-	//app->render->camera.y = -position.y + (SCREEN_HEIGHT/2);
+	app->render->camera.x = -position.x + (SCREEN_WIDTH/2);
+	app->render->camera.y = -position.y + (SCREEN_HEIGHT/2);
 
 	//printf_s("%.0f, %.0f   -   %d, %d\n", position.x, position.y, app->render->camera.x, app->render->camera.y);
 
 	//Player Movement
-	float speed = (godMode) ? 200 : 60;
+	float speed = (godMode) ? 200 : 70;
 
 	if (app->input->GetKey(SDL_SCANCODE_A) == KEY_IDLE
 		&& app->input->GetKey(SDL_SCANCODE_D) == KEY_IDLE
