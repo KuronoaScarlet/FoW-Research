@@ -142,6 +142,12 @@ public:
 	bool LoadState(pugi::xml_node&);
 	bool SaveState(pugi::xml_node&) const;
 
+	void GetSize(uint& w, uint& h)
+	{
+		w = data.width;
+		h = data.height;
+	}
+
 private:
 
 	bool LoadMap();

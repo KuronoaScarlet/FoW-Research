@@ -9,6 +9,7 @@
 #include "EntityManager.h"
 #include "Collisions.h"
 #include "FadeToBlack.h"
+#include "FoW.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -34,6 +35,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	entityManager = new EntityManager();
 	fade = new FadeToBlack();
 	collisions = new Collisions(false);
+	fog = new FoW();
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
 
@@ -43,6 +45,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(audio);
 	AddModule(map);
 	AddModule(entityManager);
+	AddModule(fog);
 	AddModule(scene1);
 	AddModule(fade);
 	// Render last to swap buffer

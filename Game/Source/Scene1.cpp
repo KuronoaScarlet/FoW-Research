@@ -10,6 +10,7 @@
 #include "Collisions.h"
 #include "FadeToBlack.h"
 #include "Fonts.h"
+#include "FoW.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -52,7 +53,7 @@ bool Scene1::Start()
 	
 	app->entityManager->AddEntity({ app->playerPosition.x, app->playerPosition.y }, Entity::Type::PLAYER);
 
-	app->map->data.height;
+	app->fog->LoadFog();
 
 	return true;
 }

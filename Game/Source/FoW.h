@@ -8,9 +8,8 @@
 struct FoWTiles
 {
 	iPoint position;
-	int tileHeight, tileWidth;
 
-	enum State
+	enum class State
 	{
 		COVERED,
 		TRANSLUCID,
@@ -20,6 +19,7 @@ struct FoWTiles
 
 class FoW : public Module
 {
+public:
 	//Constructor
 	FoW();
 
@@ -46,7 +46,7 @@ class FoW : public Module
 					· Modificar la función Draw de Map.cpp.
 					· Updatear directamente desde el Update del FoW cada uno de los tiles con un bucle.
 	*/
-
+	void LoadFog();
 
 
 

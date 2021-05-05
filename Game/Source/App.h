@@ -18,6 +18,7 @@ class Audio;
 class EntityManager;
 class Map;
 class Collisions;
+class FoW;
 
 //Scenes
 class Scene1;
@@ -95,6 +96,7 @@ public:
 	EntityManager* entityManager;
 	FadeToBlack* fade;
 	Collisions* collisions;
+	FoW* fog;
 
 	uint activeFonts = 0;
 	uint totalFonts = 0;
