@@ -35,7 +35,6 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	entityManager = new EntityManager();
 	fade = new FadeToBlack();
 	collisions = new Collisions(false);
-	fog = new FoW();
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
 
@@ -45,7 +44,6 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(audio);
 	AddModule(map);
 	AddModule(entityManager);
-	AddModule(fog);
 	AddModule(scene1);
 	AddModule(fade);
 	// Render last to swap buffer
@@ -107,6 +105,7 @@ bool App::Start()
 {
 	PERF_START(perfTimer);
 	bool ret = true;
+
 	frameTime.Start();
 	lastSecond.Start();
 	ListItem<Module*>* item;
@@ -217,7 +216,7 @@ void App::FinishUpdate()
 	}
 
 	static char title[256];
-	sprintf_s(title, 256, "CARONTE MANDATE",
+	sprintf_s(title, 256, "%d   %d   %d",
 		prevLastSecFrameCnt, fpsAverageSinceStart, dt * 1000.0);
 	app->win->SetTitle(title);
 	

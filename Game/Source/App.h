@@ -6,6 +6,7 @@
 #include "Timer.h"
 #include "Point.h"
 #include "PerfTimer.h"
+#include "FoW.h"
 
 #include "PugiXml/src/pugixml.hpp"
 
@@ -96,7 +97,6 @@ public:
 	EntityManager* entityManager;
 	FadeToBlack* fade;
 	Collisions* collisions;
-	FoW* fog;
 
 	uint activeFonts = 0;
 	uint totalFonts = 0;
@@ -114,6 +114,8 @@ public:
 	pugi::xml_node saveLoadNode;
 
 	fPoint playerPosition;
+
+	FoW* fog = new FoW;
 
 private:
 
@@ -160,6 +162,8 @@ private:
 	float oldLastFrame = 0.0f;
 	int cappedMs = -1;
 	bool caped;
+
+
 };
 
 extern App* app;

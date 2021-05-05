@@ -125,6 +125,8 @@ bool PlayerEntity::Update(float dt)
 
 	currentAnimation->Update();
 	collider->SetPos(position.x+4,position.y+6);
+
+	app->fog->FogUpdate((int)position.x + 16, (int)position.y + 16, 3);
 	
 	return true;
 }

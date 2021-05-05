@@ -1,25 +1,17 @@
 #ifndef _FOW_H_
 #define _FOW_H_
 
-#include "Module.h"
 #include "Point.h"
 #include "List.h"
 
-class FoW : public Module
+class FoW
 {
 public:
 	//Constructor
-	FoW();
+	FoW() { }
 
 	//Destructor
-	virtual ~FoW() {}
-
-	//Module Formal Functions
-	bool Awake();
-	bool Start();
-	bool Update();
-	bool PostUpdate();
-	bool CleanUp();
+	~FoW() {}
 
 	/*
 	Función de carga de la niebla.
@@ -35,8 +27,7 @@ public:
 					· Updatear directamente desde el Update del FoW cada uno de los tiles con un bucle.
 	*/
 	void LoadFog();
-
-
+	void FogDraw();
 
 	/*
 	Función de descarga de la niebla.
@@ -55,7 +46,7 @@ public:
 			3. Conseguir este comportamiento:
 				- COVERED --> UNCOVERED <--> TRANSLUCID.
 	*/
-
+	void FogUpdate(int x, int y, int radius);
 
 
 public:
@@ -70,8 +61,10 @@ public:
 	{
 		iPoint position;
 
-		int state;
+		int state = 0;
 	};
+
+	uint w, h;
 
 	List<FoWTiles*> fogTiles;
 };

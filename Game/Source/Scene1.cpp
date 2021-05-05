@@ -52,7 +52,7 @@ bool Scene1::Start()
 	app->map->Load("level.tmx");
 	
 	app->entityManager->AddEntity({ app->playerPosition.x, app->playerPosition.y }, Entity::Type::PLAYER);
-
+	
 	app->fog->LoadFog();
 
 	return true;
@@ -67,7 +67,6 @@ bool Scene1::PreUpdate()
 // Called each loop iteration
 bool Scene1::Update(float dt)
 {
-
 	app->map->Draw();
 	app->map->LoadColliders();
 
