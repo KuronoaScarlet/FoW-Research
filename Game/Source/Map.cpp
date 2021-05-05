@@ -45,7 +45,18 @@ void Map::Draw()
 
 	for (int i = 0; i < app->fog->fogTiles.Count(); ++i)
 	{
-		app->render->DrawRectangle({ app->fog->fogTiles.At(i)->data->position.x, app->fog->fogTiles.At(i)->data->position.y, 32, 32 }, 0, 0, 0, 128);
+		switch (app->fog->fogTiles.At(i)->data->state)
+		{
+		case app->fog->COVERED:
+			app->render->DrawRectangle({ app->fog->fogTiles.At(i)->data->position.x, app->fog->fogTiles.At(i)->data->position.y, 32, 32 }, 0, 0, 0, 255);
+			break;
+		case app->fog->TRANSLUCID:
+			app->render->DrawRectangle({ app->fog->fogTiles.At(i)->data->position.x, app->fog->fogTiles.At(i)->data->position.y, 32, 32 }, 0, 0, 0, 150);
+			break;
+		case app->fog->UNCOVERED:
+			break;
+
+		}
 	}
 }
 

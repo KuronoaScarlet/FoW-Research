@@ -67,6 +67,7 @@ bool Scene1::PreUpdate()
 // Called each loop iteration
 bool Scene1::Update(float dt)
 {
+
 	app->map->Draw();
 	app->map->LoadColliders();
 

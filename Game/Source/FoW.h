@@ -5,18 +5,6 @@
 #include "Point.h"
 #include "List.h"
 
-struct FoWTiles
-{
-	iPoint position;
-
-	enum class State
-	{
-		COVERED,
-		TRANSLUCID,
-		UNCOVERED
-	};
-};
-
 class FoW : public Module
 {
 public:
@@ -72,6 +60,20 @@ public:
 
 
 public:
+	enum State
+	{
+		COVERED,
+		TRANSLUCID,
+		UNCOVERED
+	};
+
+	struct FoWTiles
+	{
+		iPoint position;
+
+		int state;
+	};
+
 	List<FoWTiles*> fogTiles;
 };
 

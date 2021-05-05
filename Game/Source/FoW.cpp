@@ -48,6 +48,7 @@ void FoW::LoadFog()
 		{
 			FoWTiles* tile = new FoWTiles;
 			tile->position = app->map->MapToWorld(x, y);
+			tile->state = State::TRANSLUCID;
 			fogTiles.Add(tile);
 		}
 	}
