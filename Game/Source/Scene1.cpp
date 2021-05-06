@@ -49,11 +49,12 @@ bool Scene1::Start()
 		app->loadingGame = false;
 	}
 
-	app->map->Load("level.tmx");
+	app->map->Load("demo.tmx");
 	
 	app->entityManager->AddEntity({ app->playerPosition.x, app->playerPosition.y }, Entity::Type::PLAYER);
+	app->entityManager->AddEntity({ app->playerPosition.x+64, app->playerPosition.y-32 }, Entity::Type::PLAYER);
 	
-	app->fog->LoadFog();
+	app->fog->LoadFog(5);
 
 	return true;
 }

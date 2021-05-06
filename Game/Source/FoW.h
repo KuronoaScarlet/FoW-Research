@@ -26,16 +26,6 @@ public:
 					· Modificar la función Draw de Map.cpp.
 					· Updatear directamente desde el Update del FoW cada uno de los tiles con un bucle.
 	*/
-	void LoadFog();
-	void FogDraw();
-
-	/*
-	Función de descarga de la niebla.
-		Sencillamente realizar un CleanUp() de manera satisfactoria. Puedo crear una función UnloadFog para mayor comprensión del módulo.
-	*/
-
-
-
 
 	/*
 	Función para conseguir descubrir los tiles.
@@ -46,7 +36,10 @@ public:
 			3. Conseguir este comportamiento:
 				- COVERED --> UNCOVERED <--> TRANSLUCID.
 	*/
-	void FogUpdate(int x, int y, int radius);
+
+	void LoadFog(int radius);
+	void FogDraw();
+	void FogUpdate(int x, int y);
 
 
 public:
@@ -65,8 +58,10 @@ public:
 	};
 
 	uint w, h;
+	uint size;
+	int fogRadius = 5;
 
-	List<FoWTiles*> fogTiles;
+	FoWTiles* fogTiles;
 };
 
 #endif //_FOW_H_

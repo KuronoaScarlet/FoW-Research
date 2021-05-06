@@ -53,7 +53,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 
 	scene1->active = true;
 
-	playerPosition = { 384.0f, 1152.0f };
+	playerPosition = { 192.0f, 1152.0f };
 
 	SDL_SetRenderDrawBlendMode(render->renderer, SDL_BLENDMODE_BLEND);
 }
@@ -216,7 +216,7 @@ void App::FinishUpdate()
 	}
 
 	static char title[256];
-	sprintf_s(title, 256, "%d   %d   %d",
+	sprintf_s(title, 256, "%d   %.4f   %.4f",
 		prevLastSecFrameCnt, fpsAverageSinceStart, dt * 1000.0);
 	app->win->SetTitle(title);
 	
