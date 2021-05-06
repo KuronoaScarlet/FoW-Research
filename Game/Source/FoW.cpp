@@ -47,37 +47,16 @@ void FoW::FogUpdate(int x, int y, int radius)
 
 	for (int i = 0; i < fogTiles.Count(); ++i)
 	{
-		if ((pos.x != (fogTiles.At(i)->data->position.x / 32) ||
-				pos.y != (fogTiles.At(i)->data->position.y / 32)) &&
-				fogTiles.At(i)->data->state == UNCOVERED)
+		iPoint pt = { fogTiles.At(i)->data->position.x / 32, fogTiles.At(i)->data->position.y / 32 };
+		float d = pt.DistanceTo(pos);
+
+		if (d < radius)
+		{
+			fogTiles.At(i)->data->state = UNCOVERED;
+		}
+		else if (fogTiles.At(i)->data->state == UNCOVERED)
 		{
 			fogTiles.At(i)->data->state = TRANSLUCID;
-		}
-
-		if (pos.x == (fogTiles.At(i)->data->position.x / 32) && 
-			pos.y == (fogTiles.At(i)->data->position.y / 32))
-		{
-			fogTiles.At(i - 79)->data->state = UNCOVERED;
-			fogTiles.At(i - 80)->data->state = UNCOVERED;
-			fogTiles.At(i - 81)->data->state = UNCOVERED;
-			fogTiles.At(i - 38)->data->state = UNCOVERED;
-			fogTiles.At(i - 39)->data->state = UNCOVERED;
-			fogTiles.At(i - 40)->data->state = UNCOVERED;
-			fogTiles.At(i - 41)->data->state = UNCOVERED;
-			fogTiles.At(i - 42)->data->state = UNCOVERED;
-			fogTiles.At(i - 2)->data->state = UNCOVERED;
-			fogTiles.At(i - 1)->data->state = UNCOVERED;
-			fogTiles.At(i)->data->state = UNCOVERED;
-			fogTiles.At(i + 1)->data->state = UNCOVERED;
-			fogTiles.At(i + 2)->data->state = UNCOVERED;
-			fogTiles.At(i + 38)->data->state = UNCOVERED;
-			fogTiles.At(i + 39)->data->state = UNCOVERED;
-			fogTiles.At(i + 40)->data->state = UNCOVERED;
-			fogTiles.At(i + 41)->data->state = UNCOVERED;
-			fogTiles.At(i + 42)->data->state = UNCOVERED;
-			fogTiles.At(i + 79)->data->state = UNCOVERED;
-			fogTiles.At(i + 80)->data->state = UNCOVERED;
-			fogTiles.At(i + 81)->data->state = UNCOVERED;
 		}
 
 	}
