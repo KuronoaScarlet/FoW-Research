@@ -59,7 +59,7 @@ public:
 
 	uint w, h;
 	uint size;
-	int fogRadius = 5;
+	int fieldOfView = 5;
 
 	FoWTiles* fogTiles;
 };

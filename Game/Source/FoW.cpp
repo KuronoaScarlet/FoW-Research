@@ -12,7 +12,7 @@ void FoW::LoadFog(int radius)
 	app->map->GetSize(w, h);
 	size = w * h;
 	fogTiles = new FoWTiles[size];
-	fogRadius = radius;
+	fieldOfView = radius;
 
 	for (int y = 0; y < h; ++y)
 	{
@@ -39,6 +39,7 @@ void FoW::FogDraw()
 			app->render->DrawRectangle({ fogTiles[i].position.x, fogTiles[i].position.y, 32, 32 }, 0, 0, 0, 150);
 			break;
 		case UNCOVERED:
+			fogTiles[i].state = TRANSLUCID;
 			break;
 		}
 	}
@@ -53,13 +54,9 @@ void FoW::FogUpdate(int x, int y)
 		iPoint pt = { fogTiles[i].position.x / 32, fogTiles[i].position.y / 32 };
 		float d = pt.DistanceTo(pos);
 
-		if (d < fogRadius)
+		if (d < fieldOfView)
 		{
 			fogTiles[i].state = UNCOVERED;
-		}
-		else if (fogTiles[i].state == UNCOVERED)
-		{
-			fogTiles[i].state= TRANSLUCID;
 		}
 	}
 }

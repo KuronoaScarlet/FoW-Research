@@ -140,7 +140,16 @@ bool Input::PreUpdate()
 				mouseButtons[event.button.button - 1] = KEY_UP;
 				//LOG("Mouse button %d up", event.button.button-1);
 			break;
-
+			case SDL_MOUSEWHEEL:
+				if (event.wheel.y < 0)
+				{
+					--app->fog->fieldOfView;
+				}
+				else if (event.wheel.y>0)
+				{
+					++app->fog->fieldOfView;
+				}
+				break;
 			case SDL_MOUSEMOTION:
 				int scale = app->win->GetScale();
 				mouseMotionX = event.motion.xrel / scale;
@@ -149,7 +158,6 @@ bool Input::PreUpdate()
 				mouseY = event.motion.y / scale;
 				//LOG("Mouse motion x %d y %d", mouse_motion_x, mouse_motion_y);
 			break;
-			
 		}
 	}
 
