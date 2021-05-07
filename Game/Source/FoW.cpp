@@ -7,12 +7,11 @@
 #include "Fonts.h"
 #include "Map.h"
 
-void FoW::LoadFog(int radius)
+void FoW::LoadFog()
 {
 	app->map->GetSize(w, h);
 	size = w * h;
 	fogTiles = new FoWTiles[size];
-	fieldOfView = radius;
 
 	for (int y = 0; y < h; ++y)
 	{
@@ -45,7 +44,7 @@ void FoW::FogDraw()
 	}
 }
 
-void FoW::FogUpdate(int x, int y)
+void FoW::FogUpdate(int x, int y, int radius)
 {
 	iPoint pos = { x / 32, y / 32};
 
@@ -54,7 +53,7 @@ void FoW::FogUpdate(int x, int y)
 		iPoint pt = { fogTiles[i].position.x / 32, fogTiles[i].position.y / 32 };
 		float d = pt.DistanceTo(pos);
 
-		if (d < fieldOfView)
+		if (d < radius)
 		{
 			fogTiles[i].state = UNCOVERED;
 		}

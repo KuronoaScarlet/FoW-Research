@@ -15,14 +15,7 @@ public:
 	{
 		UNKNOWN,
 		PLAYER,
-		NPC1,
-		NPC2,
-		NPC3,
-		ALLY1,
-		EQUILIBRATED_ENEMY,
-		TANK_ENEMY,
-		DAMAGE_ENEMY,
-		PENCIL
+		TORCH
 	};
 
 	Entity(Module* listener, fPoint position, SDL_Texture* texture, Type type) : listener(listener), position(position), texture(texture), type(type)

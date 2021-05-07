@@ -9,6 +9,7 @@
 #include "Scene1.h"
 
 #include "PlayerEntity.h"
+#include "Torch.h"
 
 
 EntityManager::EntityManager() : Module()
@@ -24,6 +25,7 @@ bool EntityManager::Awake()
 bool EntityManager::Start()
 {
 	texPlayer = app->tex->Load("Assets/Textures/Entities/Playable/player.png");
+	texTorch = app->tex->Load("Assets/Textures/Entities/sunflower.png");
 
 	return true;
 }
@@ -141,7 +143,11 @@ void EntityManager::AddEntity(fPoint position, Entity::Type type)
 	//Enemies//
 	//////////
 
-	///ITEMS/////
+	//Items//
+	case Entity::Type::TORCH:
+		entityTorch = (Entity*)(new Torch((Module*)this, position, texTorch, type));
+		entityList.Add(entityTorch);
+		break;
 	////////
 	}
 }

@@ -37,9 +37,9 @@ public:
 				- COVERED --> UNCOVERED <--> TRANSLUCID.
 	*/
 
-	void LoadFog(int radius);
+	void LoadFog();
 	void FogDraw();
-	void FogUpdate(int x, int y);
+	void FogUpdate(int x, int y, int radius);
 
 
 public:
@@ -59,7 +59,6 @@ public:
 
 	uint w, h;
 	uint size;
-	int fieldOfView = 5;
 
 	FoWTiles* fogTiles;
 };
