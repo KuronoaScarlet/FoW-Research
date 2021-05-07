@@ -52,7 +52,7 @@ bool Scene1::Start()
 	app->map->Load("demo.tmx");
 	
 	app->entityManager->AddEntity({ app->playerPosition.x, app->playerPosition.y }, Entity::Type::PLAYER);
-	app->entityManager->AddEntity({ app->playerPosition.x+64, app->playerPosition.y-32 }, Entity::Type::PLAYER);
+	app->entityManager->AddEntity({ app->playerPosition.x+64, app->playerPosition.y-96 }, Entity::Type::PLAYER);
 	
 	app->fog->LoadFog(5);
 
