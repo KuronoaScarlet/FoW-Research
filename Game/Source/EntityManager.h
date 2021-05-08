@@ -52,8 +52,10 @@ public:
 
 private:
 	SDL_Texture* texPlayer;
+	SDL_Texture* texTorch;
 
 	Entity* entityPlayer;
+	Entity* entityTorch;
 };
 
 #endif // _ENTITYMANAGER_H_
