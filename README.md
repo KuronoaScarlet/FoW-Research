@@ -53,19 +53,19 @@ In these examples, the fog of war spreads throughout the map as soon as the game
 My research is not limited to observing games, taking notes and thinking which is the best way to perform some actions; I also looked for solutions raised by other users, and many of them allowed me to refine the main idea that I wanted to carry out. Take a look at [this implementation method](https://stackoverflow.com/questions/13654753/sdl-drawing-negative-circles-fog-of-war) in case you are not using a Tile-Based map. All credits to Emartel.
 
 ## Implementation
-My personal implementation of the Fog of War System consists of only 3 processes, capable of generating and working all the logic behind each Tile hidden under the fog.
+My personal implementation of the Fog of War System consists of only 4 processes, capable of generating and working all the logic behind each Tile hidden under the fog.
 ### Pilars of the Implementation
 - **Save the necessary information**: Before we start loading the mist, we must know where to create it. When we use a tile-based map as a base, we must know the size of the map and the tiles, and in the case of tiles, we must also save the position of each of them to be able to hide them properly. In addition, the correct thing to do would be to save in said system the states in which the tiles will be found, to be able to update the tiles later without much problem. Therefore, the first challenge will be to create this class and this information container.
 - **Generate the Fog**: The simplest part of all, generating the fog only consists of drawing squares with the functions that SDL provides on each tile. In this way we will completely hide the map.  Be careful with the drawing order!
 - **Update the Fog depending on the Unit you want**: It is in this third challenge that the real challenge of the Fog of War is found. With a function we must be able to generate an area of vision around our player (use some int variable called radius or something similar in order to always control the size of the field of vision), and as we discover the map, darken the tiles that are outside our visible field. For this it is advisable to use the player's position with respect to the vision radius and the status box loaded in the first step to designate the alpha of the tiles to be drawn.
-- **Logic behing Tiles**: 
- ```mermaid
-graph LR
-A[Covered Tiles]--> 
-B[Uncovered Tiles]-->
-C[Translucent Tiles]
-C-->B
-```
+	- **Logic behing Tiles**: 
+		 ```mermaid
+		graph LR
+		A[Covered Tiles]--> 
+		B[Uncovered Tiles]-->
+		C[Translucent Tiles]
+		C-->B
+		```
 - **Hide enemies behind Translucent Tiles**: The fourth and final challenge is to hide enemies based on the player's viewing distance. Using the radius of the function to update the fog should be enough to designate whether the entity is drawn or not.
 ## Code Implementation Excercises
 
