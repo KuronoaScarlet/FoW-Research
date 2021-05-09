@@ -55,7 +55,6 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 
 	playerPosition = { 192.0f, 1152.0f };
 
-	SDL_SetRenderDrawBlendMode(render->renderer, SDL_BLENDMODE_BLEND);
 }
 
 App::~App()
