@@ -11,7 +11,7 @@ Click [here]() to download the latest release, which provides an executable with
 ## About Me
 CITM student, I hope one day to be part of the development of an important game development project. In the meantime, you can follow my work from the following links! 
 - [Twitter](https://twitter.com/KuronoaScarlet)
-	- If anything goes wrong with the release or you have any problem, contact me via MD and I'll try to fix it really quickly.
+	- If anything goes wrong with the release or you have any problem, contact me via MD and I'll try to fix it or help you really quickly.
 - [Github](https://github.com/KuronoaScarlet)
 	- Follow all my progress from GitHub! I have other repositories where I work daily! 
 - [Twitch](https://twitch.tv/Kuronoa_Scarlet)
