@@ -35,11 +35,11 @@ void FoW::FogDraw()
 		case COVERED:
 			app->render->DrawRectangle({ fogTiles[i].position.x, fogTiles[i].position.y, 32, 32 }, 0, 0, 0, 255);
 			break;
-		case TRANSLUCID:
+		case TRANSLUCENT:
 			app->render->DrawRectangle({ fogTiles[i].position.x, fogTiles[i].position.y, 32, 32 }, 0, 0, 0, 150);
 			break;
 		case UNCOVERED:
-			fogTiles[i].state = TRANSLUCID;
+			fogTiles[i].state = TRANSLUCENT;
 			break;
 		}
 	}
