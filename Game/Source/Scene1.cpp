@@ -53,6 +53,8 @@ bool Scene1::Start()
 	
 	app->entityManager->AddEntity({ app->playerPosition.x, app->playerPosition.y }, Entity::Type::PLAYER);
 	app->entityManager->AddEntity({ app->playerPosition.x+320, app->playerPosition.y-320 }, Entity::Type::GOBLIN);
+	app->entityManager->AddEntity({ app->playerPosition.x+300, app->playerPosition.y-480 }, Entity::Type::GOBLIN);
+	app->entityManager->AddEntity({ app->playerPosition.x+220, app->playerPosition.y-140 }, Entity::Type::GOBLIN);
 	
 	app->fog->FogLoad();
 

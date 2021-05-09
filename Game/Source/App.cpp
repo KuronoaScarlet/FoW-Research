@@ -216,8 +216,8 @@ void App::FinishUpdate()
 	}
 
 	static char title[256];
-	sprintf_s(title, 256, "%d   %.4f   %.4f",
-		prevLastSecFrameCnt, fpsAverageSinceStart, dt * 1000.0);
+	sprintf_s(title, 256, "Fog of War Research    FPS: %d   dt: %.4f ",
+		prevLastSecFrameCnt, dt * 1000.0);
 	app->win->SetTitle(title);
 	
 }
