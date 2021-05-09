@@ -1,5 +1,5 @@
-#ifndef _TORCH_H_
-#define _TORCH_H_
+#ifndef _ENEMY_H_
+#define _ENEMY_H_
 
 #include "Point.h"
 #include "Entity.h"
@@ -11,10 +11,10 @@
 struct SDL_Texture;
 struct Collider;
 
-class Torch : Entity
+class Enemy : Entity
 {
 public:
-	Torch(Module* listener, fPoint position, SDL_Texture* texture, Type type);
+	Enemy(Module* listener, fPoint position, SDL_Texture* texture, Type type);
 
 	bool Start();
 
@@ -30,6 +30,7 @@ private:
 
 	Animation idleAnimation;
 
+	Animation* currentAnimation;
 };
 
 #endif

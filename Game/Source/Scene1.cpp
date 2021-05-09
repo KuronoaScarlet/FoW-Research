@@ -52,9 +52,9 @@ bool Scene1::Start()
 	app->map->Load("demo.tmx");
 	
 	app->entityManager->AddEntity({ app->playerPosition.x, app->playerPosition.y }, Entity::Type::PLAYER);
-	app->entityManager->AddEntity({ app->playerPosition.x+64, app->playerPosition.y-96 }, Entity::Type::PLAYER);
+	app->entityManager->AddEntity({ app->playerPosition.x+320, app->playerPosition.y-320 }, Entity::Type::GOBLIN);
 	
-	app->fog->LoadFog();
+	app->fog->FogLoad();
 
 	return true;
 }
@@ -78,7 +78,7 @@ bool Scene1::Update(float dt)
 bool Scene1::PostUpdate()
 {
 	bool ret = true;
-
+	app->fog->FogDraw();
 	return ret;
 }
 

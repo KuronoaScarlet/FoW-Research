@@ -36,8 +36,10 @@ private:
 	Animation walkAnimationDown;
 
 	Animation* currentAnimation;
-		
+	
 	fPoint tempPlayerPosition;
+
+	int radius = 5;
 
 };
 

@@ -69,7 +69,7 @@
     <ClCompile Include="Source\FoW.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Torch.cpp">
+    <ClCompile Include="Source\Enemy.cpp">
       <Filter>Entities</Filter>
     </ClCompile>
   </ItemGroup>
@@ -177,7 +177,7 @@
     <ClInclude Include="Source\FoW.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Torch.h">
+    <ClInclude Include="Source\Enemy.h">
       <Filter>Entities</Filter>
     </ClInclude>
   </ItemGroup>

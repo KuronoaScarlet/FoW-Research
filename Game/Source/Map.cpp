@@ -42,10 +42,6 @@ void Map::Draw()
 	{
 		if ((data.layers[i]->properties.GetProperty("drawable", 1) != 0) || drawColliders) DrawLayer(i);
 	}
-
-	app->fog->FogDraw();
-
-	
 }
 
 

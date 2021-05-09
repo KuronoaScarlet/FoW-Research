@@ -6,8 +6,9 @@
 #include "Render.h"
 #include "Fonts.h"
 #include "Map.h"
+#include "EntityManager.h"
 
-void FoW::LoadFog()
+void FoW::FogLoad()
 {
 	app->map->GetSize(w, h);
 	size = w * h;
@@ -47,6 +48,7 @@ void FoW::FogDraw()
 void FoW::FogUpdate(int x, int y, int radius)
 {
 	iPoint pos = { x / 32, y / 32};
+	fieldOfView = radius;
 
 	for (int i = 0; i < size; ++i)
 	{
@@ -58,4 +60,13 @@ void FoW::FogUpdate(int x, int y, int radius)
 			fogTiles[i].state = UNCOVERED;
 		}
 	}
+}
+
+int FoW::EntityHidden(float x, float y)
+{
+	fPoint pos = { (x + 16) / 32, (y + 16) / 32 };
+	fPoint dt = { (app->entityManager->playerData.position.x + 16) / 32, (app->entityManager->playerData.position.y + 16) / 32 };
+
+	float d = pos.DistanceTo(dt);
+	return d;
 }

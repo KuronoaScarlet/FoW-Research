@@ -114,16 +114,13 @@ bool PlayerEntity::Update(float dt)
 			currentAnimation = &walkAnimationLeft;
 		}
 	}
-	if (app->input->GetMouseButtonDown(SDL_BUTTON_LEFT))
-	{
-		iPoint pos = {0,0};
-		SDL_GetMouseState(&pos.x, &pos.y);
-		app->entityManager->AddEntity({(float)pos.x, (float)pos.y}, Entity::Type::TORCH);
-	}
-
 	if (app->input->GetKey(SDL_SCANCODE_F10) == KEY_DOWN)
 	{
 		godMode = !godMode;
+	}
+	if (app->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)
+	{
+		app->fog->FogLoad();
 	}
 
 	if (app->input->GetKey(SDL_SCANCODE_F5) == KEY_DOWN) app->SaveGameRequest();
@@ -132,7 +129,7 @@ bool PlayerEntity::Update(float dt)
 	currentAnimation->Update();
 	collider->SetPos(position.x+4,position.y+6);
 
-	app->fog->FogUpdate((int)position.x + 16, (int)position.y + 16, 5);
+	app->fog->FogUpdate((int)position.x + 16, (int)position.y + 16, radius);
 	
 	return true;
 }
