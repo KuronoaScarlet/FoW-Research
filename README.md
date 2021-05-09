@@ -1,3 +1,4 @@
+
 # Fog of War Research
 
 Hello! This is Ignasi Pardo, a student of the Degree in Videogame Design and Development at CITM, who has been commissioned to carry out this small personal project in search of the creation of a functional Fog of War system.  
@@ -13,6 +14,7 @@ The concept of Fog of War is, in essence, a layer that hides the areas of a map 
 - **The Revealed Area**: Field of view according to the player's position.
 - **The Fog of War**: Translucent area that usually shows players the terrain, but where the items mentioned above are hidden underneath.
 - **The Black Mask**: The completely dark area that has yet to be discovered by players.
+![Fog of War parts](https://raw.githubusercontent.com/KuronoaScarlet/FoW-Research/master/Github%20Pages%20Images/Fogofwar_parts.jpg)
 ### How it affects the Main Gameplay?
 In RPG or Strategy games, the Fog of War plays a really important role in terms of gameplay, but it also offers players a greater experience and immersion when it comes to exploring the map, since it would not be the same to play Age of Empires knowing absolutely all the movements of your rivals, or it would not be the same to explore a dungeon of any game knowing the position of all the treasures.  This is how the exploration takes on a real meaning behind the screen, offering a surprise factor and the tension of not knowing what you will find when you take the next step, as a player.
 ### Are there different types of Fog?
@@ -25,10 +27,14 @@ The word expression Fog of War comes from the limitation of the Field of View in
 At the beginning of the video game industry, developers thought about capabilities that they could not afford before, hiding information from the player is one of them.
 ### First Games
 The first registered game that actually used the Fog Of War was [**_Empire_**](https://www.youtube.com/watch?v=sH8eqPnSSEo) by _Walter Bright_. Another example is **_Tanktics_** by _Chris Crawford_. But this last one was criticized for its unreliable and "confusing" Fog of War system.
+![Empire by Walter Bright](https://raw.githubusercontent.com/KuronoaScarlet/FoW-Research/master/Github%20Pages%20Images/maxresdefault.jpg)
 ### Evolution
-Two large [**_Blizzard_**](https://en.wikipedia.org/wiki/Blizzard_Entertainment) franchises, _[**_Warcraft_**](https://en.wikipedia.org/wiki/Warcraft)_ and _[**_StarCraft_**](https://en.wikipedia.org/wiki/StarCraft)_, started to use a fog of war which only reveals terrain features and enemy units through a player's reconnaissance. Without a unit actively observing, previously revealed areas of the map are subject to a shroud through which only terrain is visible, but changes in enemy units or bases are not. This is also common in both turn-based and real-time strategy games, such as the , [**_Age of Empires_ series**](https://en.wikipedia.org/wiki/Age_of_Empires_(series)),  [**_Advance Wars_ series**](https://en.wikipedia.org/wiki/Wars_(series)), [**_Fire Emblem_ series** ](https://en.wikipedia.org/wiki/Fire_Emblem_(series)) and [**_Civilization_ series**](https://en.wikipedia.org/wiki/Civilization_(series)).
+Two large _[**Blizzard**](https://en.wikipedia.org/wiki/Blizzard_Entertainment)_ franchises, _[**Warcraft**](https://en.wikipedia.org/wiki/Warcraft)_ and _[**StarCraft**](https://en.wikipedia.org/wiki/StarCraft)_, started to use a fog of war which only reveals terrain features and enemy units through a player's reconnaissance. Without a unit actively observing, previously revealed areas of the map are subject to a shroud through which only terrain is visible, but changes in enemy units or bases are not. This is also common in both turn-based and real-time strategy games, such as the , [**_Age of Empires_ series**](https://en.wikipedia.org/wiki/Age_of_Empires_(series)),  [**_Advance Wars_ series**](https://en.wikipedia.org/wiki/Wars_(series)), [**_Fire Emblem_ series** ](https://en.wikipedia.org/wiki/Fire_Emblem_(series)) and [**_Civilization_ series**](https://en.wikipedia.org/wiki/Civilization_(series)).
+![Starcraft Fog example](https://raw.githubusercontent.com/KuronoaScarlet/FoW-Research/master/Github%20Pages%20Images/starcraft-fog-of-war-1024x574.png)
+![Fire Emblem Fog example](https://raw.githubusercontent.com/KuronoaScarlet/FoW-Research/master/Github%20Pages%20Images/16-FE5_%282%29016.png)![Age of Empires Fog example](https://raw.githubusercontent.com/KuronoaScarlet/FoW-Research/master/Github%20Pages%20Images/Nightfall.png)
 ### Present
 Over time, all these examples have been consolidated into much more solid proposals that present much more dynamism than their predecessors. There are many examples on the market, but [**_Forager_**](https://store.steampowered.com/app/751780/Forager/), [**_League of Legends_**](https://en.wikipedia.org/wiki/League_of_Legends),  [**_Among Us_**]() or even [**_Battlefield_ series**](https://en.wikipedia.org/wiki/Battlefield_(video_game_series)) show how the correct use of this tool can take immersion to another level.
+![Forager Fog example](https://raw.githubusercontent.com/KuronoaScarlet/FoW-Research/master/Github%20Pages%20Images/Forager-Review-Screenshot-18.jpg)![League of Legends Fog example](https://raw.githubusercontent.com/KuronoaScarlet/FoW-Research/master/Github%20Pages%20Images/sr_fow_2.jpg)
 
 ## My Personal Approach
 To get my personal approach right, I looked closely at the fog behaviors of some of the examples shown above. Assuming that the project is carried out on a skeleton that generates the maps by Tiles, I made the following decisions: 
@@ -51,6 +57,7 @@ In these examples, the fog of war spreads throughout the map as soon as the game
 
 ## Other Approaches.
 My research is not limited to observing games, taking notes and thinking which is the best way to perform some actions; I also looked for solutions raised by other users, and many of them allowed me to refine the main idea that I wanted to carry out. Take a look at [this implementation method](https://stackoverflow.com/questions/13654753/sdl-drawing-negative-circles-fog-of-war) in case you are not using a Tile-Based map. All credits to Emartel.
+![Emartel example of FoW implementation](https://raw.githubusercontent.com/KuronoaScarlet/FoW-Research/master/Github%20Pages%20Images/jkxS5.png)
 
 ## Implementation
 My personal implementation of the Fog of War System consists of only 4 processes, capable of generating and working all the logic behind each Tile hidden under the fog.
