@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<save>
+	<map>
+		<scene currentlyOn="1" />
+	</map>
+	<entities>
+		<entity>
+			<player>
+				<playerdata x="379.60083" y="362.89856" lvl="1" />
+			</player>
+		</entity>
+	</entities>
+</save>
