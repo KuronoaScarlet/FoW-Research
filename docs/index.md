@@ -45,7 +45,6 @@ In these examples, the fog of war spreads throughout the map as soon as the game
 - Fog is cleared based on the player's viewing area. 
 - Enemies only appear or are visible when hovering over the revealed area. 
 - The area reveal function must be usable by more than one entity. The reasons may be whatever, but this adds more dynamism to the clearing of the mists and can be used for the use of perks that increase the vision ranges of certain entities.
-
 ### Advantages
 - Just one container for the Fog of War need to be created, regardless of what the number of players is.
 -  Adjusting the radius is just changing a parameter, everything will work equally.
@@ -54,7 +53,6 @@ In these examples, the fog of war spreads throughout the map as soon as the game
 ### Drawbacks
 - The jagged edges are not solved.
 - Constant iterations are performed and performance can drop in some cases.
-
 ## Other Approaches.
 My research is not limited to observing games, taking notes and thinking which is the best way to perform some actions; I also looked for solutions raised by other users, and many of them allowed me to refine the main idea that I wanted to carry out. Take a look at [this implementation method](https://stackoverflow.com/questions/13654753/sdl-drawing-negative-circles-fog-of-war) in case you are not using a Tile-Based map. All credits to Emartel.
 ![Emartel example of FoW implementation](https://raw.githubusercontent.com/KuronoaScarlet/FoW-Research/master/docs/images/jkxS5.png)
@@ -68,6 +66,8 @@ My personal implementation of the Fog of War System consists of only 4 processes
 	- **Logic behing Tiles**: 
 ``` Covered Tiles --> Uncovered Tiles <--> Translucent Tiles ```
 - **Hide enemies behind Translucent Tiles**: The fourth and final challenge is to hide enemies based on the player's viewing distance. Using the radius of the function to update the fog should be enough to designate whether the entity is drawn or not.
+
+
 ## Code Implementation Excercises
 
 ## Social Media
