@@ -59,13 +59,7 @@ My personal implementation of the Fog of War System consists of only 4 processes
 - **Generate the Fog**: The simplest part of all, generating the fog only consists of drawing squares with the functions that SDL provides on each tile. In this way we will completely hide the map.  Be careful with the drawing order!
 - **Update the Fog depending on the Unit you want**: It is in this third challenge that the real challenge of the Fog of War is found. With a function we must be able to generate an area of vision around our player (use some int variable called radius or something similar in order to always control the size of the field of vision), and as we discover the map, darken the tiles that are outside our visible field. For this it is advisable to use the player's position with respect to the vision radius and the status box loaded in the first step to designate the alpha of the tiles to be drawn.
 	- **Logic behing Tiles**: 
-		 ```mermaid
-		graph LR
-		A[Covered Tiles]--> 
-		B[Uncovered Tiles]-->
-		C[Translucent Tiles]
-		C-->B
-		```
+``` Covered Tiles --> Uncovered Tiles <--> Translucent Tiles ```
 - **Hide enemies behind Translucent Tiles**: The fourth and final challenge is to hide enemies based on the player's viewing distance. Using the radius of the function to update the fog should be enough to designate whether the entity is drawn or not.
 ## Code Implementation Excercises
 
