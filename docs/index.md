@@ -7,6 +7,32 @@ The main goal is to provide a reliable, easy-to-use and easy-to-understand solut
 
 Click [here]() to download the latest release, which provides an executable with the final result and two projects, the one containing the exercises and the one containing the solutions.
 
+---
+## Index
+1. [Fog of War Game Concept](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#fog-of-war-game-concept)
+	1. [What is the Fog of War in video games?](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#what-is-the-fog-of-war-in-video-games)
+	2. [Parts of the Fog of War](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#parts-of-the-fog-of-war)
+	3. [How it affects the Main Gameplay](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#how-it-affects-the-main-gameplay)
+	4. [Are there different types of Fog?](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#are-there-different-types-of-fog)
+2. [History: The Fog of War through time](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#are-there-different-types-of-fog)
+	1. [Origins](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#origins)
+	2. [First Games](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#first-games)
+	3. [Evolution](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#evolution)
+	4. [Present](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#present)
+3. [My Personal Approach](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#my-personal-approach)
+4. [Other Approaches](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#my-personal-approach)
+5. [Implementation](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#implementation)
+	1. [Pilars of the Implementation](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#pilars-of-the-implementation)
+6. [Code Implementation Exercises](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#code-implementation-excercises)
+	1. [TODO 1](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#todo-1-create-the-necessary-variables-and-info-containers)
+	2. [TODO 2](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#todo-2-load-the-fog-of-war-into-an-array-with-all-the-info-created-previously)
+	3. [TODO 3](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#todo-3-create-a-function-that-allows-the-fog-to-be-drawn-on-the-tiles)
+	4. [TODO 4](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#todo-4-add-the-loading-and-drawing-functions-of-the-fog-in-the-scene-we-want-to-cover-scene1cpp)
+	5. [TODO 5](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#todo-5-its-time-to-implement-the-magic-we-must-create-the-function-to-clear-the-fog-around-the-player-cheer-up)
+	6. [TODO 6](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#todo-6-hide-the-enemies-behind-the-translucent-tiles)
+7. [Social Media](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#social-media)
+8. [License](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#license)
+---
 
 ## Fog of War Game Concept
 
@@ -38,12 +64,19 @@ The first registered game that actually used the Fog Of War was [**_Empire_**](h
 
 ### Evolution
 Two large _[**Blizzard**](https://en.wikipedia.org/wiki/Blizzard_Entertainment)_ franchises, _[**Warcraft**](https://en.wikipedia.org/wiki/Warcraft)_ and _[**StarCraft**](https://en.wikipedia.org/wiki/StarCraft)_, started to use a fog of war which only reveals terrain features and enemy units through a player's reconnaissance. Without a unit actively observing, previously revealed areas of the map are subject to a shroud through which only terrain is visible, but changes in enemy units or bases are not. This is also common in both turn-based and real-time strategy games, such as the , [**_Age of Empires_ series**](https://en.wikipedia.org/wiki/Age_of_Empires_(series)),  [**_Advance Wars_ series**](https://en.wikipedia.org/wiki/Wars_(series)), [**_Fire Emblem_ series** ](https://en.wikipedia.org/wiki/Fire_Emblem_(series)) and [**_Civilization_ series**](https://en.wikipedia.org/wiki/Civilization_(series)).
+
 ![Starcraft Fog example](https://raw.githubusercontent.com/KuronoaScarlet/FoW-Research/master/docs/images/starcraft-fog-of-war-1024x574.png)
-![Fire Emblem Fog example](https://raw.githubusercontent.com/KuronoaScarlet/FoW-Research/master/docs/images/16-FE5_%282%29016.png)![Age of Empires Fog example](https://raw.githubusercontent.com/KuronoaScarlet/FoW-Research/master/Github%20Pages%20Images/Nightfall.png)
+
+![Fire Emblem Fog example](https://raw.githubusercontent.com/KuronoaScarlet/FoW-Research/master/docs/images/16-FE5_%282%29016.png)
+
+![Age of Empires Fog example](https://raw.githubusercontent.com/KuronoaScarlet/FoW-Research/master/Github%20Pages%20Images/Nightfall.png)
 
 ### Present
 Over time, all these examples have been consolidated into much more solid proposals that present much more dynamism than their predecessors. There are many examples on the market, but [**_Forager_**](https://store.steampowered.com/app/751780/Forager/), [**_League of Legends_**](https://en.wikipedia.org/wiki/League_of_Legends),  [**_Among Us_**]() or even [**_Battlefield_ series**](https://en.wikipedia.org/wiki/Battlefield_(video_game_series)) show how the correct use of this tool can take immersion to another level.
-![Forager Fog example](https://raw.githubusercontent.com/KuronoaScarlet/FoW-Research/master/docs/images/Forager-Review-Screenshot-18.jpg)![League of Legends Fog example](https://raw.githubusercontent.com/KuronoaScarlet/FoW-Research/master/docs/images/sr_fow_2.jpg)
+
+![Forager Fog example](https://raw.githubusercontent.com/KuronoaScarlet/FoW-Research/master/docs/images/Forager-Review-Screenshot-18.jpg)
+
+![League of Legends Fog example](https://raw.githubusercontent.com/KuronoaScarlet/FoW-Research/master/docs/images/sr_fow_2.jpg)
 
 
 ## My Personal Approach
@@ -51,11 +84,11 @@ To get my personal approach right, I looked closely at the fog behaviors of some
 - The fog had to be displayed on a tile-based map. 
 - As a direct example I took that of the strategy games **Fire Emblem**, **Advance Wars** or **Age of Empires**, since they are really simple examples and close to the fog of war that could be implemented in an RPG. 
 
-In these examples, the fog of war spreads throughout the map as soon as the game begins, and it is through the units that the player controls that the part of the map that has been discovered is visible. In addition, enemies are only visible when they are located on the revealed area of ​​the map, and they hide again when they leave the field of vision. Thus, the key points to keep in mind are the following:
+In these examples, the fog of war spreads throughout the map as soon as the game begins, and it is through the units that the player controls that the part of the map that has been discovered is visible. In addition, enemies are only visible when they are located on the revealed area of the map, and they hide again when they leave the field of vision. Thus, the key points to keep in mind are the following:
 - Fog is cleared based on the player's viewing area. 
 - Enemies only appear or are visible when hovering over the revealed area. 
 - The area reveal function must be usable by more than one entity. The reasons may be whatever, but this adds more dynamism to the clearing of the mists and can be used for the use of perks that increase the vision ranges of certain entities.
-- 
+
 ### Advantages
 - Just one container for the Fog of War need to be created, regardless of what the number of players is.
 -  Adjusting the radius is just changing a parameter, everything will work equally.
@@ -69,6 +102,7 @@ In these examples, the fog of war spreads throughout the map as soon as the game
 
 ## Other Approaches.
 My research is not limited to observing games, taking notes and thinking which is the best way to perform some actions; I also looked for solutions raised by other users, and many of them allowed me to refine the main idea that I wanted to carry out. Take a look at [this implementation method](https://stackoverflow.com/questions/13654753/sdl-drawing-negative-circles-fog-of-war) in case you are not using a Tile-Based map. All credits to Emartel.
+
 ![Emartel example of FoW implementation](https://raw.githubusercontent.com/KuronoaScarlet/FoW-Research/master/docs/images/jkxS5.png)
 
 
@@ -83,7 +117,7 @@ My personal implementation of the Fog of War System consists of only 4 processes
 ``` Covered Tiles --> Uncovered Tiles <--> Translucent Tiles ```
 - **Hide enemies behind Translucent Tiles**: The fourth and final challenge is to hide enemies based on the player's viewing distance. Using the radius of the function to update the fog should be enough to designate whether the entity is drawn or not.
 
-## Code Implementation Excercises
+## Code Implementation Exercises
 When you download the release or source code of the project, you will access a handout with various TODO's so that you can create your own Fog of War on your own and with the help of the comments. As soon as you get the Visual Studio project, if you compile, this should come out:
 
 ![TODO1 Expected Result](https://raw.githubusercontent.com/KuronoaScarlet/ResearchFogOfWar/master/docs/images/TODO1expres.png)
