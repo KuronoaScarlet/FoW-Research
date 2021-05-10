@@ -86,7 +86,7 @@ My personal implementation of the Fog of War System consists of only 4 processes
 ## Code Implementation Excercises
 When you download the release or source code of the project, you will access a handout with various TODO's so that you can create your own Fog of War on your own and with the help of the comments. As soon as you get the Visual Studio project, if you compile, this should come out:
 
-![TODO1 Expected Result](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/images/TODO1expres.png)
+![TODO1 Expected Result](https://raw.githubusercontent.com/KuronoaScarlet/ResearchFogOfWar/master/docs/images/TODO1expres.png)
 
 
 As you can see, there is a map where you can move, the player and three goblins that will do the job of being "enemies". 
@@ -138,7 +138,7 @@ Call the function to draw the Fog of War (PostUpdate()).
 
 From here you should be able to observe the effects of drawing the tiles. When compiling, you should only see a black screen. You can change the Update function FogDraw () to draw under the entities and check that you really got it! 
 
-![TODO4 Expected Result](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/images/TODO4expres.png)
+![TODO4 Expected Result](https://raw.githubusercontent.com/KuronoaScarlet/ResearchFogOfWar/master/docs/images/TODO4expres.png)
 
 
 ### TODO 5: It's time to implement the magic! We must create the function to clear the fog around the player. Cheer up! 
@@ -151,7 +151,7 @@ Call the update function to discover the tiles in question (PlayerEntity.cpp).
 
 Expected results:
 
-![TODO5 Expected Result](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/images/TODO5expres.png)
+![TODO5 Expected Result](https://raw.githubusercontent.com/KuronoaScarlet/ResearchFogOfWar/master/docs/images/TODO5expres.png)
 
 
 ### TODO 6: Hide the Enemies behind the Translucent Tiles!
