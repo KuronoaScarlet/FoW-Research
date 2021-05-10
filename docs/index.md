@@ -8,6 +8,7 @@ The main goal is to provide a reliable, easy-to-use and easy-to-understand solut
 Click [here]() to download the latest release, which provides an executable with the final result and two projects, the one containing the exercises and the one containing the solutions.
 
 ---
+
 ## Index
 1. [Fog of War Game Concept](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#fog-of-war-game-concept)
 	1. [What is the Fog of War in video games?](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#what-is-the-fog-of-war-in-video-games)
@@ -32,6 +33,7 @@ Click [here]() to download the latest release, which provides an executable with
 	6. [TODO 6](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#todo-6-hide-the-enemies-behind-the-translucent-tiles)
 7. [Social Media](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#social-media)
 8. [License](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#license)
+
 ---
 
 ## Fog of War Game Concept
