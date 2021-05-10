@@ -71,7 +71,7 @@ Two large _[**Blizzard**](https://en.wikipedia.org/wiki/Blizzard_Entertainment)_
 
 ![Fire Emblem Fog example](https://raw.githubusercontent.com/KuronoaScarlet/FoW-Research/master/docs/images/16-FE5_%282%29016.png)
 
-![Age of Empires Fog example](https://raw.githubusercontent.com/KuronoaScarlet/FoW-Research/master/Github%20Pages%20Images/Nightfall.png)
+![Age of Empires Fog example](https://raw.githubusercontent.com/KuronoaScarlet/FoW-Research/master/docs/images/Nightfall.png)
 
 ### Present
 Over time, all these examples have been consolidated into much more solid proposals that present much more dynamism than their predecessors. There are many examples on the market, but [**_Forager_**](https://store.steampowered.com/app/751780/Forager/), [**_League of Legends_**](https://en.wikipedia.org/wiki/League_of_Legends),  [**_Among Us_**]() or even [**_Battlefield_ series**](https://en.wikipedia.org/wiki/Battlefield_(video_game_series)) show how the correct use of this tool can take immersion to another level.
