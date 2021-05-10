@@ -23,7 +23,7 @@ Click [here]() to download the latest release, which provides an executable with
 3. [My Personal Approach](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#my-personal-approach)
 4. [Other Approaches](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#my-personal-approach)
 5. [Implementation](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#implementation)
-	1. [Pilars of the Implementation](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#pilars-of-the-implementation)
+	1. [Pillars of the Implementation](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#pillars-of-the-implementation)
 6. [Code Implementation Exercises](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#code-implementation-excercises)
 	1. [TODO 1](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#todo-1-create-the-necessary-variables-and-info-containers)
 	2. [TODO 2](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#todo-2-load-the-fog-of-war-into-an-array-with-all-the-info-created-previously)
@@ -96,7 +96,7 @@ In these examples, the fog of war spreads throughout the map as soon as the game
 -  Adjusting the radius is just changing a parameter, everything will work equally.
 - The programmer knows exactly what tiles are beeing visited without any extra calculations. (good for hiding stuff).
 - We just need an SDL function to draw the fog.
-- 
+
 ### Drawbacks
 - The jagged edges are not solved.
 - Constant iterations are performed and performance can drop in some cases.
@@ -111,7 +111,7 @@ My research is not limited to observing games, taking notes and thinking which i
 ## Implementation
 My personal implementation of the Fog of War System consists of only 4 processes, capable of generating and working all the logic behind each Tile hidden under the fog.
 
-### Pilars of the Implementation
+### Pillars of the Implementation
 - **Save the necessary information**: Before we start loading the mist, we must know where to create it. When we use a tile-based map as a base, we must know the size of the map and the tiles, and in the case of tiles, we must also save the position of each of them to be able to hide them properly. In addition, the correct thing to do would be to save in said system the states in which the tiles will be found, to be able to update the tiles later without much problem. Therefore, the first challenge will be to create this class and this information container.
 - **Generate the Fog**: The simplest part of all, generating the fog only consists of drawing squares with the functions that SDL provides on each tile. In this way we will completely hide the map.  Be careful with the drawing order!
 - **Update the Fog depending on the Unit you want**: It is in this third challenge that the real challenge of the Fog of War is found. With a function we must be able to generate an area of vision around our player (use some int variable called radius or something similar in order to always control the size of the field of vision), and as we discover the map, darken the tiles that are outside our visible field. For this it is advisable to use the player's position with respect to the vision radius and the status box loaded in the first step to designate the alpha of the tiles to be drawn.
