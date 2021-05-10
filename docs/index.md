@@ -10,29 +10,23 @@ Click [here]() to download the latest release, which provides an executable with
 ---
 
 ## Index
-1. [Fog of War Game Concept](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#fog-of-war-game-concept)
-	1. [What is the Fog of War in video games?](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#what-is-the-fog-of-war-in-video-games)
-	2. [Parts of the Fog of War](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#parts-of-the-fog-of-war)
-	3. [How it affects the Main Gameplay](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#how-it-affects-the-main-gameplay)
-	4. [Are there different types of Fog?](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#are-there-different-types-of-fog)
-2. [History: The Fog of War through time](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#are-there-different-types-of-fog)
-	1. [Origins](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#origins)
-	2. [First Games](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#first-games)
-	3. [Evolution](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#evolution)
-	4. [Present](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#present)
-3. [My Personal Approach](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#my-personal-approach)
-4. [Other Approaches](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#my-personal-approach)
-5. [Implementation](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#implementation)
-	1. [Pillars of the Implementation](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#pillars-of-the-implementation)
-6. [Code Implementation Exercises](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#code-implementation-excercises)
-	1. [TODO 1](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#todo-1-create-the-necessary-variables-and-info-containers)
-	2. [TODO 2](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#todo-2-load-the-fog-of-war-into-an-array-with-all-the-info-created-previously)
-	3. [TODO 3](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#todo-3-create-a-function-that-allows-the-fog-to-be-drawn-on-the-tiles)
-	4. [TODO 4](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#todo-4-add-the-loading-and-drawing-functions-of-the-fog-in-the-scene-we-want-to-cover-scene1cpp)
-	5. [TODO 5](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#todo-5-its-time-to-implement-the-magic-we-must-create-the-function-to-clear-the-fog-around-the-player-cheer-up)
-	6. [TODO 6](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#todo-6-hide-the-enemies-behind-the-translucent-tiles)
-7. [Social Media](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#social-media)
-8. [License](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/index.md#license)
+1. Fog of War Game Concept
+	- What is the Fog of War in video games?
+	- Parts of the Fog of War
+	- How it affects the Main Gameplay
+	- Are there different types of Fog?
+2. History: The Fog of War through time
+	- Origins
+	- First Games
+	- Evolution
+	- Present
+3. My Personal Approach
+4. Other Approaches
+5. Implementation
+	- Pillars of the Implementation
+6. Code Implementation Exercises
+7. Social Media
+8. License
 
 ---
 
