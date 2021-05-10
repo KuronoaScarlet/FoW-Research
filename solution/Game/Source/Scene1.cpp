@@ -56,7 +56,7 @@ bool Scene1::Start()
 	app->entityManager->AddEntity({ app->playerPosition.x+300, app->playerPosition.y-480 }, Entity::Type::GOBLIN);
 	app->entityManager->AddEntity({ app->playerPosition.x+220, app->playerPosition.y-140 }, Entity::Type::GOBLIN);
 	
-	//TODO 4: Call the function to Load the Fog of War. 
+	//TODO 4.0: Call the function to Load the Fog of War. 
 	app->fog->FogLoad();
 
 	return true;
@@ -81,7 +81,7 @@ bool Scene1::Update(float dt)
 bool Scene1::PostUpdate()
 {
 	bool ret = true;
-	//TODO 4: Call the function to draw the Fog of War. 
+	//TODO 4.1: Call the function to draw the Fog of War. 
 	app->fog->FogDraw();
 	return ret;
 }

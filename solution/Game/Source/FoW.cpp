@@ -52,12 +52,12 @@ void FoW::FogUpdate(int x, int y, int radius)
 {
 	//TODO 5.1: Implement the magic. (Save the position of the entity for Tiles, iterate the array, and with the use of the radius discover the tiles around the entity!) 
 	//Remember to save the radius in a variable accessible from FoW. It will serve us later! 
-	iPoint pos = { x / w, y / h};
+	iPoint pos = { x / 32, y / 32};
 	fieldOfView = radius; 
 
 	for (int i = 0; i < size; ++i)
 	{
-		iPoint pt = { fogTiles[i].position.x / w, fogTiles[i].position.y / h };
+		iPoint pt = { fogTiles[i].position.x / 32, fogTiles[i].position.y / 32 };
 		float d = pt.DistanceTo(pos);
 
 		if (d < radius)
@@ -70,8 +70,8 @@ void FoW::FogUpdate(int x, int y, int radius)
 int FoW::EntityHidden(float x, float y)
 {
 	//TODO 6.1: Similar to the Mist update. This time, but, it returns the value of the distance between the player and the entity in question. 
-	fPoint pos = { (x + w / 2) / w, (y + h / 2) / h };
-	fPoint dt = { (app->entityManager->playerData.position.x + w / 2) / w, (app->entityManager->playerData.position.y + h / 2) / h };
+	fPoint pos = { (x + 16 / 2) / 32, (y + 16 / 2) / 32 };
+	fPoint dt = { (app->entityManager->playerData.position.x + 16 / 2) / 32, (app->entityManager->playerData.position.y + 16 / 2) / 32 };
 
 	float d = pos.DistanceTo(dt);
 	return d;
