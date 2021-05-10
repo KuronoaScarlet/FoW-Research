@@ -129,6 +129,7 @@ bool PlayerEntity::Update(float dt)
 	currentAnimation->Update();
 	collider->SetPos(position.x+4,position.y+6);
 
+	//TODO 5.2: Call the update function to discover the tiles in question. 
 	app->fog->FogUpdate((int)position.x + 16, (int)position.y + 16, radius);
 	
 	return true;
