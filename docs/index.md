@@ -84,6 +84,70 @@ My personal implementation of the Fog of War System consists of only 4 processes
 - **Hide enemies behind Translucent Tiles**: The fourth and final challenge is to hide enemies based on the player's viewing distance. Using the radius of the function to update the fog should be enough to designate whether the entity is drawn or not.
 
 ## Code Implementation Excercises
+When you download the release or source code of the project, you will access a handout with various TODO's so that you can create your own Fog of War on your own and with the help of the comments. As soon as you get the Visual Studio project, if you compile, this should come out:
+
+![TODO1 Expected Result](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/images/TODO1expres.png)
+
+As you can see, there is a map where you can move, the player and three goblins that will do the job of being "enemies". 
+
+### TODO 1: Create the necessary Variables and Info Containers
+#### TODO 1.0: Create a structure to contain vital information about tiles and other key variables. Initialize said structure as an Array.
+```Example:
+struct FoWTiles
+{
+	Position
+	State
+}; 
+```
+
+#### TODO 1.1: Create the Tiles status box. 
+```Example:
+enum State
+{
+	STATE_1,
+	STATE_2,
+	STATE_3,
+	.
+	.
+	. 
+	STATE_N
+};
+```
+### TODO 2: Load the Fog of War into an array with all the info created previously 
+#### TODO 2.0: Declare the function to charge the Fog of War. No arguments required!
+#### TODO 2.1: Create a dynamic FoWTiles array with the size of the Tiles Map.
+#### TODO 2.2: Make a loop that saves the position of each tile in the world, and initializes its state to "covered" by default. 
+
+### TODO 3: Create a function that allows the fog to be drawn on the tiles 
+#### TODO 3.0: Declare the function for drawing the Fog of War. No arguments required! 
+#### TODO 3.1: Make a loop that goes through all the tiles. Depending on its state, a square with more or less Alpha should be drawn (Recommended: Covered -> 255, Translucent -> ~ 128/150). I also recommend the use of a Switch to permute between every State (following the logic).
+
+### TODO 4: Add the loading and drawing functions of the fog in the scene we want to cover (Scene1.cpp) 
+#### TODO 4.0: Call the function to Load the Fog of War (Start()). 
+#### TODO 4.1: Call the function to draw the Fog of War (PostUpdate()). 
+
+From here you should be able to observe the effects of drawing the tiles. When compiling, you should only see a black screen. You can change the Update function FogDraw () to draw under the entities and check that you really got it! 
+
+![TODO4 Expected Result](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/images/TODO4expres.png)
+
+### TODO 5: It's time to implement the magic! We must create the function to clear the fog around the player. Cheer up! 
+#### TODO 5.0: Declare the function to update the Fog of War based on an entity. Arguments required (Entity position and radius)! 
+#### TODO 5.1: Implement the magic. (Save the position of the entity for Tiles, iterate the array, and with the use of the radius discover the tiles around the entity!). Remember to save the radius in a variable accessible from FoW. It will serve us later! 
+#### TODO 5.2: Call the update function to discover the tiles in question (PlayerEntity.cpp). 
+
+Expected results:
+![TODO5 Expected Result](https://github.com/KuronoaScarlet/ResearchFogOfWar/blob/master/docs/images/TODO5expres.png)
+
+
+### TODO 6: Hide the Enemies behind the Translucent Tiles!
+#### TODO 6.0: Declare the function to hide enemies under the Fog of War. Arguments required (Entity position)!
+#### TODO 6.1: Similar to the Mist update. This time, but, it returns the value of the distance between the player and the entity in question.
+#### TODO 6.2: Call the hide enemies function (Enemy.cpp).
+#### TODO 6.3: Logic after drawing: If it is inside the player's FoV, it is shown; otherwise it is not drawn (Enemy.cpp).
+
+Expected Results:
+[![TODO 6 Expected Results]({https://i.ytimg.com/vi/Xxrg9xjK3aE/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDjTedf762m0C-jb2DkkgP2mnwqQg})]({https://youtu.be/Xxrg9xjK3aE} "TODO 6 Expected Result")
+
 
 ## Social Media
 You can follow me and ocassionally my work from:
