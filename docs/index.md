@@ -118,7 +118,7 @@ enum State
 ```
 ### TODO 2: Load the Fog of War into an array with all the info created previously 
 #### TODO 2.0: 
-Declare the function to charge the Fog of War. No arguments required!
+Declare the function to Load the Fog of War. No arguments required!
 #### TODO 2.1: 
 Create a dynamic FoWTiles array with the size of the Tiles Map.
 #### TODO 2.2: 
