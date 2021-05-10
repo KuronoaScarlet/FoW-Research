@@ -195,7 +195,7 @@ Call the hide enemies function (Enemy.cpp).
 Logic after drawing: If it is inside the player's FoV, it is shown; otherwise it is not drawn (Enemy.cpp).
 
 Expected Results:
-[![TODO 6 Expected Results](https://youtu.be/Xxrg9xjK3aE)
+[TODO 6 Expected Results](https://youtu.be/Xxrg9xjK3aE)
 
 
 ## Social Media
