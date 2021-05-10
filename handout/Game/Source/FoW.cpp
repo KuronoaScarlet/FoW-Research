@@ -8,6 +8,8 @@
 #include "Map.h"
 #include "EntityManager.h"
 
+//UNCOMENT THE FUNCIONS IN THE ORDER OF TODO'S. THIS WILL PREVENT YOUR PROGRAM TO CRASH WHILE COMPILING
+
 //void FoW::FogLoad()
 //{
 //	//TODO 2.1: Create a dynamic FoWTiles array with the size of the Tiles Map.
