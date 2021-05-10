@@ -34,7 +34,7 @@ public:
 
 public:
 	////TODO 1
-	// TODO 1.0: Create a structure to contain vital information about tiles and other key variables. Initialize said structure as an Array 
+	// TODO 1.0: Create a structure to contain vital information about tiles and other key variables. Initialize said structure as an Array.
 	struct FoWTiles
 	{
 		iPoint position;
@@ -47,7 +47,7 @@ public:
 	int fieldOfView;
 	FoWTiles* fogTiles;
 
-	// TODO 1.1: Create the Tiles status box  
+	// TODO 1.1: Create the Tiles status box. 
 	enum State
 	{
 		COVERED,

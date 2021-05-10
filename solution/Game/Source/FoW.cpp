@@ -15,7 +15,7 @@ void FoW::FogLoad()
 	size = w * h;
 	fogTiles = new FoWTiles[size];
 
-	//TODO 2.2:Make a loop that saves the position of each tile in the world, and initializes its state to "covered" by default. 
+	//TODO 2.2: Make a loop that saves the position of each tile in the world, and initializes its state to "covered" by default. 
 	for (int y = 0; y < h; ++y)
 	{
 		for (int x = 0; x < w; ++x)
