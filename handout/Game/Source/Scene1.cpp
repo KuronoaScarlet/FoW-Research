@@ -50,13 +50,14 @@ bool Scene1::Start()
 	}
 
 	app->map->Load("demo.tmx");
-	
+
 	app->entityManager->AddEntity({ app->playerPosition.x, app->playerPosition.y }, Entity::Type::PLAYER);
-	app->entityManager->AddEntity({ app->playerPosition.x+320, app->playerPosition.y-320 }, Entity::Type::GOBLIN);
-	app->entityManager->AddEntity({ app->playerPosition.x+300, app->playerPosition.y-480 }, Entity::Type::GOBLIN);
-	app->entityManager->AddEntity({ app->playerPosition.x+220, app->playerPosition.y-140 }, Entity::Type::GOBLIN);
+	app->entityManager->AddEntity({ app->playerPosition.x + 320, app->playerPosition.y - 320 }, Entity::Type::GOBLIN);
+	app->entityManager->AddEntity({ app->playerPosition.x + 300, app->playerPosition.y - 480 }, Entity::Type::GOBLIN);
+	app->entityManager->AddEntity({ app->playerPosition.x + 220, app->playerPosition.y - 140 }, Entity::Type::GOBLIN);
+
+	//TODO 4: Call the function to Load the Fog of War. 
 	
-	app->fog->FogLoad();
 
 	return true;
 }
@@ -80,7 +81,8 @@ bool Scene1::Update(float dt)
 bool Scene1::PostUpdate()
 {
 	bool ret = true;
-	app->fog->FogDraw();
+	//TODO 4: Call the function to draw the Fog of War. 
+	
 	return ret;
 }
 

@@ -12,34 +12,36 @@ public:
 
 	//Destructor
 	~FoW() {}
+	////TODO 2
+	// TODO 2.0: Declare the function to charge the Fog of War. No arguments required!  
+	//void FogLoad();
+	////
 
-	void FogLoad();
-	void FogDraw();
-	void FogUpdate(int x, int y, int radius);
-	int EntityHidden(float x, float y);
+	////TODO 3
+	// TODO 3.0: Declare the function for drawing the Fog of War. No arguments required! 
+	//void FogDraw();
+	////
+
+	////TODO 5
+	// TODO 5.0: Declare the function to update the Fog of War based on an entity. Arguments required (Entity position and radius)! 
+	//void FogUpdate(int x, int y, int radius);
+	////
+
+	////TODO 6
+	// TODO 6.0: Declare the function to hide enemies under the Fog of War. Arguments required (Entity position)! 
+	//int EntityHidden(float x, float y);
 
 
 public:
-	enum State
-	{
-		COVERED,
-		TRANSLUCENT,
-		UNCOVERED
-	};
+	////TODO 1
+	// TODO 1.0: Create a structure to contain vital information about tiles and other key variables. Initialize said structure as an Array 
 
-	struct FoWTiles
-	{
-		iPoint position;
 
-		int state = 0;
-	};
+	// TODO 1.1: Create the Tiles status box  
 
-	uint w, h;
-	uint size;
-	int fieldOfView;
-	bool hide;
+	////
 
-	FoWTiles* fogTiles;
+
 };
 
 #endif //_FOW_H_

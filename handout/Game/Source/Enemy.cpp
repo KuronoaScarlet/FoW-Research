@@ -43,12 +43,12 @@ bool Enemy::Update(float dt)
 bool Enemy::Draw()
 {
 	SDL_Rect enemyRect = currentAnimation->GetCurrentFrame();
+	//TODO 6.2: Call the hide enemies function.
 
-	float d = app->fog->EntityHidden(position.x, position.y);
-	if ( d < app->fog->fieldOfView)
-	{
-		app->render->DrawTexture(texture, position.x, position.y, &enemyRect);
-	}
+	//TODO 6.3: Logic after drawing: If it is inside the player's FoV, it is shown; otherwise it is not drawn. 
+	
+	app->render->DrawTexture(texture, position.x, position.y, &enemyRect);
+	
 
 	return false;
 }

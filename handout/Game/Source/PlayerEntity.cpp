@@ -58,8 +58,8 @@ bool PlayerEntity::Update(float dt)
 	app->entityManager->playerData.position.x = position.x;
 	app->entityManager->playerData.position.y = position.y;
 
-	app->render->camera.x = -position.x + (SCREEN_WIDTH/2);
-	app->render->camera.y = -position.y + (SCREEN_HEIGHT/2);
+	app->render->camera.x = -position.x + (SCREEN_WIDTH / 2);
+	app->render->camera.y = -position.y + (SCREEN_HEIGHT / 2);
 
 	//printf_s("%.0f, %.0f   -   %d, %d\n", position.x, position.y, app->render->camera.x, app->render->camera.y);
 
@@ -120,17 +120,18 @@ bool PlayerEntity::Update(float dt)
 	}
 	if (app->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)
 	{
-		app->fog->FogLoad();
+		//app->fog->FogLoad();
 	}
 
 	if (app->input->GetKey(SDL_SCANCODE_F5) == KEY_DOWN) app->SaveGameRequest();
 	if (app->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN) app->LoadGameRequest();
 
 	currentAnimation->Update();
-	collider->SetPos(position.x+4,position.y+6);
+	collider->SetPos(position.x + 4, position.y + 6);
 
-	app->fog->FogUpdate((int)position.x + 16, (int)position.y + 16, radius);
+	//TODO 5.2: Call the update function to discover the tiles in question. 
 	
+
 	return true;
 }
 
