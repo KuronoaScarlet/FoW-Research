@@ -6,7 +6,12 @@ Hello! This is Ignasi Pardo, a student of the Degree in Videogame Design and Dev
 ## Description
 The objective of this project is to offer an easy and simple to understand solution on the implementation of a fog of war system on a tile-based map. 
 
-Click [here]() to download the latest release, which provides an executable with the final result and two projects, the one containing the exercises and the one containing the solutions. You can also download the [source code](https://github.com/KuronoaScarlet/ResearchFogOfWar/archive/refs/heads/master.zip).
+Click [here]() to download the latest release, which provides two projects, the one containing the exercises and the one containing the solutions. You can also download the [source code](https://github.com/KuronoaScarlet/ResearchFogOfWar/archive/refs/heads/master.zip).
+
+### Controls
+- WASD: Movement
+- R: Reset Fog
+
 
 ## About Me
 CITM student, I hope one day to be part of the development of an important game development project. In the meantime, you can follow my work from the following links! 
