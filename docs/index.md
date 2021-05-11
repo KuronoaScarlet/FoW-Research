@@ -5,7 +5,7 @@ Hello! This is Ignasi Pardo, a student of the Degree in Videogame Design and Dev
 
 The main goal is to provide a reliable, easy-to-use and easy-to-understand solution in C ++.
 
-Click [here]() to download the latest release, which provides an executable with the final result and two projects, the one containing the exercises and the one containing the solutions.
+Click [here](https://github.com/KuronoaScarlet/ResearchFogOfWar/releases/tag/1.0) to download the latest release, which provides an executable with the final result and two projects, the one containing the exercises and the one containing the solutions.
 
 ---
 
